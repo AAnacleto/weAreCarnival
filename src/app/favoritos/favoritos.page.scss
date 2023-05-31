@@ -2,3 +2,27 @@
   margin-top: 20px;
 
 }
+
+// p{
+//   text-align: center;
+//   opacity: 0.5;
+//   font-size: 1.2rem;
+
+// }
+
+.head{
+  background-color: #0062EB;
+
+}
+
+ion-toolbar{
+  text-align: center;
+  font-weight: 700;
+   select{
+     color: black;
+     margin-left: 10px;
+     height: 30px;
+     border-radius: 5px;
+     font-weight: 600;
+   }
+}

@@ -1,14 +1,30 @@
-<ion-content [fullscreen]="true">
-  <div>
-    <ion-list class="first">
-      <ion-item>
-        <ion-label>Selecione o dia</ion-label>
-        <ion-select interface="popover" placeholder="Select fruit">
-          <ion-select-option value="Quinta-feira">Quinta-feira</ion-select-option>
-          <ion-select-option value="Sexta-feira">Sexta-feira</ion-select-option>
-          <ion-select-option value="Sabado">Sabado</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
- </div>
+<ion-header>
+  <ion-toolbar color="primary">
+     <label for="cars">Selecione o dia:</label>
+      <select name="diaSemana" id="diaSemana">
+        <option value="item.dia" *ngFor="let item of diaSemana">{{item.dia}}</option>
+      </select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+
+  <ion-list id="modal-list" [inset]="true">
+    <ion-item *ngFor="let item of items">
+      <ion-avatar slot="start">
+        <ion-img src="{{item.img}}"></ion-img>
+      </ion-avatar>
+      <ion-label>
+       <h2>{{item.name}} </h2>
+       <p>{{item.data}}</p>
+       <p>{{item.local}}</p>
+      </ion-label>
+      <ion-icon aria-hidden="true" name="heart-outline" *ngIf="item.favorito === false" (click)="favoritar(item)"></ion-icon>
+      <ion-icon aria-hidden="true" name="heart" style="color: red" *ngIf="item.favorito === true" (click)="favoritar(item)"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+ <!-- <div class="main">
+  <p>Não há lista de eventos favoritos</p>
+ </div> -->
 </ion-content>

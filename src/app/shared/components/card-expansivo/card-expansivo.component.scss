@@ -1,6 +1,9 @@
 
 .titulo{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  top: 10px;
+  font-weight: 700;
+
 }
 
 .icone-down{
@@ -18,9 +21,12 @@
 }
 
 ion-card{
-  // border-style: ridge;
   height: 60px;
   -webkit-box-shadow: 0 6px 4px -6px #777;
   -moz-box-shadow: 0 6px 4px -6px #777;
   box-shadow: 0 6px 6px -6px #777;
+}
+
+img{
+  height: 40px !important;
 }
