@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favoritos',
@@ -6,57 +7,139 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['favoritos.page.scss'],
 })
 export class FavoritosPage implements OnInit {
+  // eventoBotaoClick: boolean = false;
+  eventoBotaoClickPolo: boolean = false;
+  eventoBotaoClickBlocos: boolean = false;
   diaSemana = [
-    { dia: 'Quinta-feira' },
-    { dia: 'Sexta-feira' },
-    { dia: 'Sábado de Carnaval'},
-    { dia: 'Domingo de Carnaval'},
-    { dia: 'Segunda de Carnaval'},
-    { dia: 'Terça feira Gorda'},
-    { dia: 'Quarta-feira de Cinzas'},
+    { dia: 'Quinta-feira', selecao: false, id: 1 },
+    { dia: 'Sexta-feira', selecao: false, id: 2 },
+    { dia: 'Sábado de Carnaval', selecao: false, id: 3 },
+    { dia: 'Domingo de Carnaval', selecao: false, id: 4 },
+    { dia: 'Segunda de Carnaval', selecao: false, id: 5 },
+    { dia: 'Terça feira Gorda', selecao: false, id: 6 },
+    { dia: 'Quarta-feira de Cinzas', selecao: false, id: 7 },
   ];
 
-items = [ { "name": "Varejo 360",
-  "img": "./assets/imagens/1.png",
-  "data": " Qui, 09 Mar - 19:00",
-  "local": "Sebrae - Recife",
-  "favorito": true
-},
-{ "name": "A Cor Purpura",
-  "img": "./assets/imagens/2.png",
-  "data": " Qui, 09 Mar - 19:00",
-  "local": "Teatro do Parque - Recife",
-  "favorito": true
-
-},
-{ "name": "A Arte do Estoicismo",
- "img": "./assets/imagens/3.jpg",
- "data": " Qui, 09 Mar - 19:00",
- "local": "Online",
- "favorito": true
-
-},
-{  "name": "Terra por elas Convida",
-  "img": "./assets/imagens/4.jpg",
-  "data": " Qui, 09 Mar - 19:00",
-  "local": "Sebrae - Recife",
-  "favorito": true
-
-},
-{ "name": "Match Hall",
-  "img": "./assets/imagens/5.png",
-  "data": " Qui, 09 Mar - 19:00",
-  "local": "Sebrae - Recife",
-  "favorito": true
-
-}
-]
-  constructor() {}
+  items = [
+    {
+      id: 1,
+      name: 'Varejo 360',
+      img: './assets/imagens/1.png',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Sebrae - Recife',
+      favorito: false,
+    },
+    {
+      id: 2,
+      name: 'A Cor Purpura',
+      img: './assets/imagens/2.png',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Teatro do Parque - Recife',
+      favorito: false,
+    },
+    {
+      id: 3,
+      name: 'A Arte do Estoicismo',
+      img: './assets/imagens/3.jpg',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Online',
+      favorito: false,
+    },
+    {
+      id: 4,
+      name: 'Terra por elas Convida',
+      img: './assets/imagens/4.jpg',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Sebrae - Recife',
+      favorito: false,
+    },
+    {
+      id: 5,
+      name: 'Match Hall',
+      img: './assets/imagens/5.png',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Sebrae - Recife',
+      favorito: false,
+    },
+    {
+      id: 6,
+      name: 'Varejo 360',
+      img: './assets/imagens/1.png',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Sebrae - Recife',
+      favorito: false,
+    },
+    {
+      id: 7,
+      name: 'A Cor Purpura',
+      img: './assets/imagens/2.png',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Teatro do Parque - Recife',
+      favorito: false,
+    },
+    {
+      id: 8,
+      name: 'A Arte do Estoicismo',
+      img: './assets/imagens/3.jpg',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Online',
+      favorito: false,
+    },
+    {
+      id: 9,
+      name: 'Terra por elas Convida',
+      img: './assets/imagens/4.jpg',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Sebrae - Recife',
+      favorito: false,
+    },
+    {
+      id: 10,
+      name: 'Match Hall',
+      img: './assets/imagens/5.png',
+      data: ' Qui, 09 Mar - 19:00',
+      local: 'Sebrae - Recife',
+      favorito: false,
+    },
+  ];
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  favoritar(value: any){
+  favoritar(value: any) {
     value.favorito = !value.favorito;
-    console.log(value)
+    console.log(value);
+  }
+
+  irModalDetalhes(id: any) {
+    this.router.navigate(['tabs/detalhes/' + id]);
+  }
+
+  eventoBotao(i: any, item: any) {
+    this.diaSemana[i].selecao = !this.diaSemana[i].selecao;
+    console.log(item);
+
+    for (let index = 0; index < this.diaSemana.length; index++) {
+      if (item.id != this.diaSemana[index].id) {
+        this.diaSemana[index].selecao = false;
+      }
+    }
+  }
+
+  chamarPolosGerais(valor: any){
+    if(valor === 1){
+      this.eventoBotaoClickBlocos = true;
+      this.eventoBotaoClickPolo = false;
+
+
+    } else if (valor === 2){
+      this.eventoBotaoClickPolo = true;
+      this.eventoBotaoClickBlocos = false;
+
+    }
+  }
+
+  imprimirDia(valor: any){
+    console.log(valor)
   }
 }

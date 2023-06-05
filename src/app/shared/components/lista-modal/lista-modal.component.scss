@@ -5,20 +5,56 @@ ion-avatar {
 
 ion-header{
    text-align: center;
+
+   .menu{
+    margin-top: 5px !important;
+   }
+
 }
 
 .titulo{
   font-weight: 700;
+  font-size: 1rem;
 }
 
 ion-toolbar{
   ion-segment{
+
     ion-label{
        text-transform: capitalize;
        font-size: 1rem;
        font-weight: 600;
     }
   }
+
+  ion-segment#blocos{
+
+    ion-segment-button{
+      width: 50%;
+
+      ion-label{
+        text-transform: capitalize;
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: black;
+      }
+    }
+
+
+
+  }
+
 }
+
+
+.buttonBack{
+  --background: #0D6EFD;
+  --color: white;
+}
+
+
+
+
+
 
 

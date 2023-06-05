@@ -3,26 +3,32 @@
 
 }
 
-// p{
-//   text-align: center;
-//   opacity: 0.5;
-//   font-size: 1.2rem;
-
-// }
-
-.head{
-  background-color: #0062EB;
-
+.buttonBack{
+  --background: #0D6EFD;
+  --color: white;
 }
+
+.menu{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+
 
 ion-toolbar{
   text-align: center;
   font-weight: 700;
-   select{
-     color: black;
-     margin-left: 10px;
-     height: 30px;
-     border-radius: 5px;
+
+}
+
+ion-segment{
+
+  ion-label{
+     text-transform: capitalize;
+     font-size: 1rem;
      font-weight: 600;
-   }
+  }
+
 }

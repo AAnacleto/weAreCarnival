@@ -11,14 +11,16 @@ import { Evento } from '../../models/evento';
 export class CardExpansivoComponent  implements OnInit {
 
   @Input() titulo: string = " ";
+  @Input() expandirCard: boolean = false;
 
-  expandirCard: boolean = false;
   spinnerShow: boolean = true;
   listEventos: Evento[] = [];
 
   constructor(private eventoService: EventoService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.expandirCard);
+  }
 
   expandirCardContent(){
     this.expandirCard = !this.expandirCard;;

@@ -1,9 +1,13 @@
+import { Endereco } from './endereco';
 export class Evento {
-  id: number = 0;
-  nome: string = "";
-  dia: string = "";
-  local: string = "";
-  horario: string = "";
-  principal: boolean = false;
-  cidade: string = "";
+  id: any;
+  name: string = "";
+  polo: string = "";
+  endereco: Endereco = new Endereco();
+  nomeLocal: string = "";
+  img: string = "";
+  data: string = "";
+  horarioSaida: string = "";
+  diaSemana: string = "";
+  favoritos: boolean = false;
 }

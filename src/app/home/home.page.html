@@ -1,99 +1,60 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="primary">
     <ion-searchbar
-       animated="true"
-       placeholder="Encontre o evento ..."
-       show-cancel-button="focus"
-       (ionInput)="handleInput($event)"
+      animated="true"
+      placeholder="Encontre o evento ..."
+      show-cancel-button="focus"
+      (ionInput)="handleInput($event)"
     ></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar *ngIf="showPesquisa===true">
-    <ion-list>
-      <ion-item *ngFor="let result of results">
-        <ion-label>{{ result.name }}</ion-label>
+
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let item of items">
+        <ion-avatar slot="start">
+          <ion-img
+            src="{{item.img}}"
+            (click)="irModalDetalhes(item.id)"
+          ></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{item.name}}</h2>
+          <p>{{item.data}}</p>
+        </ion-label>
+
       </ion-item>
     </ion-list>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content color="light" [fullscreen]="true">
+  <app-lista-slide
+    *ngIf="showPesquisa===false"
+    [listaSlide]="items"
+    titulo="Grandes Blocos Tradicionais"
+  >
+  </app-lista-slide>
 
-<div *ngIf="showPesquisa===false">
-    <ion-grid [fixed]="true">
-      <ion-row class="ion-no-padding">
-        <ion-col size="12">
-          <h4 class="section-header">Grandes blocos gratuitos</h4>
-        </ion-col>
-     </ion-row>
-    </ion-grid>
-  </div>
+  <app-lista-slide [listaSlide]="items" titulo="Eventos Pagos">
+  </app-lista-slide>
 
-  <ion-slides [options]="opts">
-     <ion-slide *ngFor="let item of items, let i = index" tappable (click)="irModalDetalhes(item.id)">
-       <ion-grid>
-          <ion-row>
-            <img src="{{item.img}}"/>
-          </ion-row>
-          <ion-row class="titulo">
-            <b>{{item.name}}</b>
-          </ion-row >
-          <ion-row class="fonte">
-             {{item.data}}
-          </ion-row>
-          <ion-row class="fonte">
-             {{item.local}}
-          </ion-row>
+  <app-lista-slide [listaSlide]="items" titulo="Infantil"> </app-lista-slide>
 
-       </ion-grid>
-     </ion-slide>
-   </ion-slides>
-
-   <div>
-    <ion-grid [fixed]="true">
-      <ion-row class="ion-no-padding">
-        <ion-col size="12">
-          <h4 class="section-header">Eventos Pagos</h4>
-        </ion-col>
-     </ion-row>
-    </ion-grid>
-  </div>
-
-   <ion-slides [options]="opts">
-    <ion-slide *ngFor="let item of items" tappable >
-      <ion-grid>
-         <ion-row>
-           <img alt="Silhouette of mountains" src="{{item.img}}"/>
-         </ion-row>
-         <ion-row class="titulo">
-           <b>{{item.name}}</b>
-         </ion-row >
-         <ion-row class="fonte">
-            {{item.data}}
-         </ion-row>
-         <ion-row class="fonte">
-            {{item.local}}
-         </ion-row>
-      </ion-grid>
-    </ion-slide>
-  </ion-slides>
-
-   <div>
+  <div>
     <ion-grid [fixed]="true">
       <ion-row class="ion-no-padding">
         <ion-col size="12">
           <h4 class="section-header">Programe o seu Carnaval</h4>
         </ion-col>
-     </ion-row>
-  </ion-grid>
+      </ion-row>
+    </ion-grid>
 
     <app-card-expansivo
-     (click)="irModallistEventos()"
-     *ngFor="let item of programacao; let i = index"
-     [titulo]="item.dia">
+      *ngFor="let item of diaSemana; let i = index"
+      [titulo]="item.dia"
+      (click)="irModallistEventos(item.id)"
+
+    >
     </app-card-expansivo>
   </div>
-
-
-
 </ion-content>

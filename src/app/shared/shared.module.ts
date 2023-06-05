@@ -6,17 +6,18 @@ import { CardExpansivoComponent } from './components/card-expansivo/card-expansi
 import { EventoService } from './servicos/evento.service';
 import { ListaModalComponent } from './components/lista-modal/lista-modal.component';
 import { DetalhesModalComponent } from './components/detalhes-modal/detalhes-modal.component';
+import { ListaSlideComponent } from './components/lista-slide/lista-slide.component';
 
 
 
 @NgModule({
-  declarations: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent ],
+  declarations: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent],
   imports: [
     CommonModule,
     IonicModule,
     HttpClientModule
   ],
-  exports: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent],
+  exports: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent],
   providers: [EventoService],
 
 })

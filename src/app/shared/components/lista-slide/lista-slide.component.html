@@ -1,0 +1,37 @@
+<div class="main">
+   <div >
+    <ion-grid [fixed]="true">
+      <ion-row class="ion-no-padding">
+        <ion-col size="12">
+          <h4 class="section-header">{{titulo}}</h4>
+        </ion-col>
+     </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <ion-slides [options]="opts">
+      <ion-slide *ngFor="let item of listaSlide, let i = index" tappable (click)="irModalDetalhes(item.id)">
+        <ion-grid>
+           <ion-row>
+             <img class="imagemBanner" src="{{item.img}}"/>
+           </ion-row>
+           <ion-row class="titulo">
+             <b>{{item.name}}</b>
+           </ion-row >
+           <ion-row class="fonte">
+              {{item.data}}
+           </ion-row>
+           <ion-row class="fonte">
+              {{item.nomeLocal}}
+           </ion-row>
+
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</div>
+
+
+
+
+

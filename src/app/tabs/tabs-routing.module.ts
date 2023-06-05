@@ -18,7 +18,7 @@ const routes: Routes = [
 
       },
       {
-        path: 'listaEventos',
+        path: 'listaEventos/:id',
         component: ListaModalComponent,
       },
       {

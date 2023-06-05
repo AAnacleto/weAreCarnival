@@ -1,30 +1,87 @@
 <ion-header>
   <ion-toolbar color="primary">
-     <label for="cars">Selecione o dia:</label>
-      <select name="diaSemana" id="diaSemana">
-        <option value="item.dia" *ngFor="let item of diaSemana">{{item.dia}}</option>
-      </select>
+    <label for="cars">Selecione o dia:</label>
+  </ion-toolbar>
+  <!-- <ion-button
+    *ngFor="let item of diaSemana, let i = index"
+    shape="round"
+    fill="outline"
+    class="button"
+    size="small"
+    (click)="eventoBotao(i, item)"
+    [ngClass]="{ 'buttonBack': item.selecao === true}"
+
+    >
+    {{item.dia}}
+   </ion-button> -->
+
+  <ion-toolbar>
+    <ion-segment [scrollable]="true">
+      <ion-segment-button
+        (click)="imprimirDia(item)"
+        *ngFor="let item of diaSemana, let i = index"
+      >
+        <ion-label> {{item.dia}} </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <div class="menu">
+      <ion-button
+        shape="round"
+        fill="outline"
+        class="button"
+        size="small"
+        (click)="chamarPolosGerais(1)"
+        [ngClass]="{ 'buttonBack': eventoBotaoClickBlocos === true}"
+      >
+        Blocos de Rua
+      </ion-button>
+      <ion-button
+        shape="round"
+        fill="outline"
+        class="button"
+        size="small"
+        (click)="chamarPolosGerais(2)"
+        [ngClass]="{ 'buttonBack': eventoBotaoClickPolo === true}"
+        >Polos</ion-button
+      >
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="light" [fullscreen]="true">
-
   <ion-list id="modal-list" [inset]="true">
     <ion-item *ngFor="let item of items">
       <ion-avatar slot="start">
-        <ion-img src="{{item.img}}"></ion-img>
+        <ion-img
+          src="{{item.img}}"
+          (click)="irModalDetalhes(item.id)"
+        ></ion-img>
       </ion-avatar>
       <ion-label>
-       <h2>{{item.name}} </h2>
-       <p>{{item.data}}</p>
-       <p>{{item.local}}</p>
+        <h2>{{item.name}}</h2>
+        <p>{{item.data}}</p>
+        <p>{{item.local}}</p>
       </ion-label>
-      <ion-icon aria-hidden="true" name="heart-outline" *ngIf="item.favorito === false" (click)="favoritar(item)"></ion-icon>
-      <ion-icon aria-hidden="true" name="heart" style="color: red" *ngIf="item.favorito === true" (click)="favoritar(item)"></ion-icon>
+      <ion-icon
+        aria-hidden="true"
+        name="heart-outline"
+        *ngIf="item.favorito === false"
+        (click)="favoritar(item)"
+      ></ion-icon>
+      <ion-icon
+        aria-hidden="true"
+        name="heart"
+        style="color: red"
+        *ngIf="item.favorito === true"
+        (click)="favoritar(item)"
+      ></ion-icon>
     </ion-item>
   </ion-list>
 
- <!-- <div class="main">
+  <!-- <div class="main">
   <p>Não há lista de eventos favoritos</p>
  </div> -->
 </ion-content>
