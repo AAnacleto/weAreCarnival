@@ -200,11 +200,14 @@ public results = [...this.items];
 
 
   irModallistEventos(id: any){
-    this.router.navigate(['tabs/listaEventos/' + id]);
+    this.router.navigate(['carnival/tabs/listaEventos/' + id]);
+    console.log(this.router.navigate(['carnival/tabs/listaEventos/' + id]));
   }
 
   irModalDetalhes(id: any){
-    this.router.navigate(['tabs/detalhes/' + id]);
+    this.router.navigate(['carnival/tabs/detalhes/' + id]);
+    console.log(this.router.navigate(['carnival/tabs/detalhes/' + id]));
+
   }
 
   handleInput(event: any) {

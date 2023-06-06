@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-perfil',
@@ -8,7 +10,10 @@ import { Component } from '@angular/core';
 export class PerfilPage {
   imagePath: any;
   imgUrl: any;
-  constructor() {}
+
+
+  constructor(private router: Router) {}
+
 
   preview(files : any, event : any){
     if(files.length ===0){
@@ -27,6 +32,10 @@ export class PerfilPage {
      this.imgUrl = reader.result;
     }
 
+  }
+
+  logOut(){
+    this.router.navigate(['login']);
   }
 
 }

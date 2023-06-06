@@ -28,7 +28,7 @@ export class ListaSlideComponent  implements OnInit {
   }
 
   irModalDetalhes(id: any){
-    this.router.navigate(['tabs/detalhes/' + id]);
+    this.router.navigate(['carnival/tabs/detalhes/' + id]);
   }
 
 }

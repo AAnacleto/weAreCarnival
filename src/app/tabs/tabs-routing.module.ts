@@ -6,18 +6,13 @@ import { PerfilPage } from '../perfil/perfil.page';
 import { DetalhesModalComponent } from '../shared/components/detalhes-modal/detalhes-modal.component';
 import { ListaModalComponent } from '../shared/components/lista-modal/lista-modal.component';
 import { TabsPage } from './tabs.page';
-import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
     children: [
-      // {
-      //   path: 'login',
-      //   component: LoginComponent,
 
-      // },
       {
         path: 'home',
         component: HomePage,
@@ -40,19 +35,11 @@ const routes: Routes = [
         path: 'perfil',
         component: PerfilPage,
 
-      },
-      {
-        path: '',
-        redirectTo: 'LoginComponent',
-        pathMatch: 'full'
       }
+
     ]
   }
-  // {
-  //   path: '',
-  //   redirectTo: '/tabs/home',
-  //   pathMatch: 'full'
-  // }
+
 
 ];
 
