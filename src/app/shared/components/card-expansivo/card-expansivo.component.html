@@ -1,15 +1,36 @@
-<ion-card color="primary">
-   <ion-grid>
-     <ion-row class="ion-no-padding">
-       <ion-col size="10">
-        <ion-card-title class="titulo">{{titulo}}</ion-card-title>
+<ion-card color="primary" id="main">
+  <ion-grid>
+    <ion-row class="ion-no-padding">
+      <ion-col size="10">
+        <ion-card-title class="titulo">{{ titulo | translate }}</ion-card-title>
       </ion-col>
       <ion-col size="2">
-        <img src="../../../../assets/imagens/frevo.png">
+        <img
+          src="../../../../assets/imagens/frevo.png"
+          (click)="expandirCardContent()"
+        />
       </ion-col>
-   </ion-row>
+    </ion-row>
   </ion-grid>
-
-
 </ion-card>
-
+<ion-card *ngIf="expandirCard" class="atracoes">
+  <ion-card-content>
+    <ion-item *ngFor="let item of listaAtracoesMock; let i = index">
+      <ion-icon name="pin-outline" id="star" slot="start"></ion-icon>
+      <ion-label>{{ item.horario }} - {{ item.nome }}</ion-label>
+      <ion-icon
+        name="heart-outline"
+        slot="end"
+        *ngIf="item.favorito === false"
+        (click)="eventoLike(i)"
+      ></ion-icon>
+      <ion-icon
+        aria-hidden="true"
+        name="heart"
+        style="color: red"
+        *ngIf="item.favorito"
+        (click)="eventoLike(i)"
+      ></ion-icon>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

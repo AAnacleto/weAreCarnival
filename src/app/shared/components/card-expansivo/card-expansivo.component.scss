@@ -3,24 +3,11 @@
   font-size: 1.2rem;
   top: 10px;
   font-weight: 700;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
-.icone-down{
-  font-size:1.5rem;
-  font-weight: bolder;
-}
-
-.spinner{
-  margin-top: 20px;
-
-  .svg{
-    left: 40%;
-  }
-
-}
-
-ion-card{
+ion-card#main{
   height: 60px;
   -webkit-box-shadow: 0 6px 4px -6px #777;
   -moz-box-shadow: 0 6px 4px -6px #777;
@@ -29,4 +16,15 @@ ion-card{
 
 img{
   height: 40px !important;
+}
+
+.atracoes{
+  border-bottom: 2px solid #f4f5f8;
+  border-top: 2px solid #f4f5f8;
+  margin-top: -10px;
+  height: 100%;
+}
+
+ion-icon#star{
+  color: #0D6EFD;
 }

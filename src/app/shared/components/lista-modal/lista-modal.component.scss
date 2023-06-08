@@ -8,6 +8,10 @@ ion-header{
 
    .menu{
     margin-top: 5px !important;
+    ion-button{
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    }
    }
 
 }
@@ -15,6 +19,8 @@ ion-header{
 .titulo{
   font-weight: 700;
   font-size: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 ion-toolbar{
@@ -24,6 +30,8 @@ ion-toolbar{
        text-transform: capitalize;
        font-size: 1rem;
        font-weight: 600;
+       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
     }
   }
 
@@ -52,6 +60,26 @@ ion-toolbar{
   --color: white;
 }
 
+ion-content{
+  ion-slides {
+    height: 100%;
+
+    .swiper-slide{
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+
+    }
+
+    .programacao {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
 
 
 

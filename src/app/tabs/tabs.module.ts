@@ -10,6 +10,8 @@ import { TabsPage } from './tabs.page';
 import { PerfilPage } from '../perfil/perfil.page';
 import { HomePage } from '../home/home.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [
     TabsPage,

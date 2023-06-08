@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -166,13 +167,13 @@ export class HomePage implements OnInit {
 ]
 
 diaSemana = [
-  { dia: 'Quinta-feira', selecao: false, id: 1 },
-  { dia: 'Sexta-feira', selecao: false, id: 2 },
-  { dia: 'Sábado de Carnaval', selecao: false, id: 3 },
-  { dia: 'Domingo de Carnaval', selecao: false, id: 4 },
-  { dia: 'Segunda de Carnaval', selecao: false, id: 5 },
-  { dia: 'Terça feira Gorda', selecao: false, id: 6 },
-  { dia: 'Quarta-feira de Cinzas', selecao: false, id: 7 },
+  { dia: 'Home.dia.dia1', selecao: false, id: 1 },
+  { dia: 'Home.dia.dia2', selecao: false, id: 2 },
+  { dia: 'Home.dia.dia3', selecao: false, id: 3 },
+  { dia: 'Home.dia.dia4', selecao: false, id: 4 },
+  { dia: 'Home.dia.dia5', selecao: false, id: 5 },
+  { dia: 'Home.dia.dia6', selecao: false, id: 6 },
+  { dia: 'Home.dia.dia7', selecao: false, id: 7 },
 ];
 
 opts ={
@@ -186,12 +187,18 @@ presentingElement: any = null;
 
 showPesquisa: boolean = false;
 
+toggleValue: boolean = false;
+
+selectedLanguage: string = "pt";
+
+
 public results = [...this.items];
 
 
 
-  constructor(private router: Router){
-
+  constructor(private router: Router, private translate: TranslateService){
+    translate.setDefaultLang('pt'); // Define o idioma padrão
+    translate.use(this.selectedLanguage);
   }
 
   ngOnInit() {
@@ -213,6 +220,18 @@ public results = [...this.items];
   handleInput(event: any) {
    this.showPesquisa = true;
    if(event.target.value === ""){this.showPesquisa = false;}
+  }
+
+  mostrarValor(){
+    console.log(this.toggleValue)
+    if(this.toggleValue === false){
+      this.translate.use('pt'); // Use o idioma atual
+
+    } else {
+      this.translate.use('en'); // Use o idioma atual
+    }
+
+    console.log(this.selectedLanguage)
   }
 
 

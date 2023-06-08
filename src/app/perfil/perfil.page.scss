@@ -1,44 +1,51 @@
+$fonte-principal: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+
 ion-header{
   ion-toolbar{
      ion-title{
       text-align: center;
       font-weight: 700;
       font-size: 1rem;
+      font-family: $fonte-principal;
+
      }
   }
 }
 
 ion-content{
-    .profile{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      .image{
-        background-image: url('../../assets/imagens/profile3.png');
-        background-repeat: no-repeat;
-        background-size: 100%;
-        height: 150px !important;
-        width: 150px !important;
-        border: 2px solid black;
-        margin-top: 25px;
-        border-radius: 50%;
-
-        img{
-          border-radius: 50%;
-
-        }
+   .form{
+      ion-label, ion-input{
+        font-family: $fonte-principal;
 
       }
-      .inputPhoto{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-         .form-control{
-           font-size: 0.8rem;
-           margin-top: 10px;
-         }
+    }
+
+    .container{
+      background-color: white !important;
+      border-bottom: 5px solid #f4f5f8;
+      border-radius: 10px;
+    }
+
+    .section-header{
+      margin-left: 10px !important;
+      font-weight: bold;
+      font-family: $fonte-principal;
+      color: #0D6EFD;
+    }
+
+    .buttons{
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      justify-content: center;
+      align-items: center;
+      font-family: $fonte-principal;
+
+      .button2{
+        padding-top: 5px;
+
       }
     }
 

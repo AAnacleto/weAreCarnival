@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -18,6 +18,7 @@ export class ListaModalComponent implements OnInit {
       img: './assets/imagens/1.png',
       data: ' Qui, 09 Mar - 19:00',
       local: 'Sebrae - Recife',
+      cidade: 'Olinda',
       favorito: false,
     },
     {
@@ -26,6 +27,7 @@ export class ListaModalComponent implements OnInit {
       img: './assets/imagens/2.png',
       data: ' Qui, 09 Mar - 19:00',
       local: 'Teatro do Parque - Recife',
+      cidade: 'Olinda',
       favorito: false,
     },
     {
@@ -34,6 +36,7 @@ export class ListaModalComponent implements OnInit {
       img: './assets/imagens/3.jpg',
       data: ' Qui, 09 Mar - 19:00',
       local: 'Online',
+      cidade: 'Recife',
       favorito: false,
     },
     {
@@ -42,6 +45,7 @@ export class ListaModalComponent implements OnInit {
       img: './assets/imagens/4.jpg',
       data: ' Qui, 09 Mar - 19:00',
       local: 'Sebrae - Recife',
+      cidade: 'Recife',
       favorito: false,
     },
     {
@@ -50,11 +54,14 @@ export class ListaModalComponent implements OnInit {
       img: './assets/imagens/5.png',
       data: ' Qui, 09 Mar - 19:00',
       local: 'Sebrae - Recife',
+      cidade: 'Recife',
       favorito: false,
     },
   ];
 
   polos: any = [];
+
+  eventos: any = [];
 
   polosOlinda = [
     { polo: 'Polo Carmo', expandir: false },
@@ -85,13 +92,13 @@ export class ListaModalComponent implements OnInit {
   ];
 
   diaSemana = [
-    { dia: 'Quinta-feira', selecao: false, id: 1 },
-    { dia: 'Sexta-feira', selecao: false, id: 2 },
-    { dia: 'Sábado de Carnaval', selecao: false, id: 3 },
-    { dia: 'Domingo de Carnaval', selecao: false, id: 4 },
-    { dia: 'Segunda de Carnaval', selecao: false, id: 5 },
-    { dia: 'Terça feira Gorda', selecao: false, id: 6 },
-    { dia: 'Quarta-feira de Cinzas', selecao: false, id: 7 },
+    { dia: 'Home.dia.dia1', selecao: false, id: 1 },
+    { dia: 'Home.dia.dia2', selecao: false, id: 2 },
+    { dia: 'Home.dia.dia3', selecao: false, id: 3 },
+    { dia: 'Home.dia.dia4', selecao: false, id: 4 },
+    { dia: 'Home.dia.dia5', selecao: false, id: 5 },
+    { dia: 'Home.dia.dia6', selecao: false, id: 6 },
+    { dia: 'Home.dia.dia7', selecao: false, id: 7 },
   ];
 
   like: boolean = false;
@@ -100,6 +107,18 @@ export class ListaModalComponent implements OnInit {
   id: any;
   titulo: any;
   cardsBlocos: boolean = false;
+  indice: number = 0;
+
+  @ViewChild(IonSlides) slides!: IonSlides;
+
+  selectedSegment: string = 'segment1';
+
+  slideOptions = {
+    allowSlidePrev: true,
+    allowSlideNext: true,
+
+
+  };
 
   constructor(private router: Router, private navController: NavController, private route: ActivatedRoute) {}
 
@@ -108,16 +127,15 @@ export class ListaModalComponent implements OnInit {
     var retorno = this.diaSemana.filter(dia => dia.id === parseInt(this.id));
     this.titulo = retorno[0].dia;
     this.cidade = 1;
+    this.modalidade = 3;
     this.cardsBlocos = true;
-
+    this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
 
   }
 
   favoritar(value: any) {
-    console.log(value);
     this.like = !this.like;
     value.favorito = !value.favorito;
-    console.log(value);
   }
 
   irModalDetalhes(id: any) {
@@ -126,24 +144,27 @@ export class ListaModalComponent implements OnInit {
 
   chamarPolosGerais(valor: any) {
     this.modalidade = valor;
-    console.log(valor);
     this.verificarMenu();
   }
 
   imprimirValor(valor: any) {
     this.cidade = valor;
-    console.log(this.cidade);
     this.verificarMenu();
   }
 
   verificarMenu() {
-    if (
-      (this.cidade === 1 && this.modalidade === 3) ||
-      (this.cidade === 2 && this.modalidade === 3)
-    ) {
-      console.log('cidade Olinda, blocos gerais');
-      this.polos = [];
-      this.cardsBlocos = true;
+    if ( this.cidade === 1 && this.modalidade === 3){
+       console.log('cidade Olinda, blocos gerais');
+       this.polos = [];
+       this.cardsBlocos = true;
+       this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
+
+    } else if (this.cidade === 2 && this.modalidade === 3){
+       console.log('cidade Recife, blocos gerais');
+       this.polos = [];
+       this.cardsBlocos = true;
+       this.eventos = this.items.filter( buscar => buscar.cidade === 'Recife');
+
     } else if (this.cidade === 1 && this.modalidade === 4) {
       console.log('cidade Olinda, Polos');
       this.polos = this.polosOlinda;
@@ -156,14 +177,38 @@ export class ListaModalComponent implements OnInit {
   }
 
   expandirCardEvent(i: any){
-    console.log(this.polos);
+    console.log(i)
+    this.indice = i;
     this.polos[i].expandir = !this.polos[i].expandir;
-    console.log(this.polos);
-
-    console.log(this.polos.expandir);
   }
 
   public goBack(): void {
     this.navController.back();
+  }
+
+  onSegmentChange() {
+    this.slides.slideTo(this.getSegmentIndex());
+  }
+
+ onSlideChange = async () =>  {
+    const activeIndex = await this.slides.getActiveIndex(); // Aguarda a resolução da Promise
+    this.selectedSegment = 'segment' + (activeIndex + 1);
+    if(this.selectedSegment === 'segment1'){
+      this.cidade = 1;
+    } else {
+      this.cidade = 2;
+    }
+    this.verificarMenu()
+ }
+
+  getSegmentIndex(): number {
+    switch (this.selectedSegment) {
+      case 'segment1':
+        return 0;
+      case 'segment2':
+        return 1;
+
+    }
+    return 0;
   }
 }

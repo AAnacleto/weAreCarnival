@@ -8,7 +8,6 @@
     ></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar *ngIf="showPesquisa===true">
-
     <ion-list [inset]="true">
       <ion-item *ngFor="let item of items">
         <ion-avatar slot="start">
@@ -21,30 +20,44 @@
           <h2>{{item.name}}</h2>
           <p>{{item.data}}</p>
         </ion-label>
-
       </ion-item>
     </ion-list>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="light" [fullscreen]="true">
-  <app-lista-slide
+
+  <div class="flag" *ngIf="showPesquisa===false">
+    <ion-item>
+      <ion-label *ngIf="toggleValue===false">
+        <img src="../../assets/imagens/flags/brasil.png">
+      </ion-label>
+      <ion-label *ngIf="toggleValue===true">
+        <img src="../../assets/imagens/flags/eua.png">
+     </ion-label>
+     <ion-label id="text">
+      {{ "Home.texto5" | translate}}
+    </ion-label>
+       <ion-toggle [(ngModel)]="toggleValue" (ionChange)="mostrarValor()"> Toggle </ion-toggle>
+    </ion-item>
+  </div>
+
+<app-lista-slide
     *ngIf="showPesquisa===false"
     [listaSlide]="items"
-    titulo="Grandes Blocos Tradicionais"
+    titulo="Home.texto1"
   >
   </app-lista-slide>
 
-  <app-lista-slide [listaSlide]="items" titulo="Eventos Pagos">
-  </app-lista-slide>
+  <app-lista-slide [listaSlide]="items" titulo="Home.texto2"></app-lista-slide>
 
-  <app-lista-slide [listaSlide]="items" titulo="Infantil"> </app-lista-slide>
+  <app-lista-slide [listaSlide]="items" titulo="Home.texto3"> </app-lista-slide>
 
-  <div>
+  <div class="programacao">
     <ion-grid [fixed]="true">
       <ion-row class="ion-no-padding">
         <ion-col size="12">
-          <h4 class="section-header">Programe o seu Carnaval</h4>
+          <h4 class="section-header">{{ 'Home.texto4' | translate }}</h4>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -52,8 +65,9 @@
     <app-card-expansivo
       *ngFor="let item of diaSemana; let i = index"
       [titulo]="item.dia"
+      [expandirCard]= false
+      [mostrarCardAtracoes]=false
       (click)="irModallistEventos(item.id)"
-
     >
     </app-card-expansivo>
   </div>

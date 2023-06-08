@@ -12,12 +12,20 @@
 .section-header{
   margin-left: 10px !important;
   font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #0D6EFD;
 }
 
 .imagemBanner{
   height: 90px !important;
   width: 135px !important;
 
+}
+
+.main{
+  background-color: white !important;
+  border-bottom: 5px solid #f4f5f8;
+  border-radius: 10px;
 }
 
 

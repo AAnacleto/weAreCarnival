@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light" [fullscreen]="true">
-  <div class="profile">
+  <!-- <div class="profile">
     <div class="image">
       <img [src]="imgUrl" *ngIf="imgUrl">
 
@@ -13,29 +13,59 @@
       <input type="file" class="form-control" accept="image/*" #file (change)="preview(file.files, $event)" />
 
     </div>
+  </div> -->
+  <div class="container">
+    <ion-grid [fixed]="true">
+      <ion-row class="ion-no-padding">
+        <ion-col size="12">
+          <h4 class="section-header">Dados Pessoais</h4>
+        </ion-col>
+     </ion-row>
+    </ion-grid>
+    <div class="form">
+      <ion-list>
+        <ion-item>
+          <ion-label> Nome: </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> Email: </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> Senha:</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="buttons">
+      <!-- <ion-button>Salvar Alterações</ion-button>
+      <ion-button color="danger" (click)="logOut()">Sair</ion-button> -->
+       <div class="button1">
+        <button type="button" class="btn btn-primary">Salvar Alterações</button>
+
+       </div>
+       <div class="button2">
+        <button type="button" class="btn btn-link" (click)="logOut()">Sair</button>
+
+       </div>
+
+    </div>
   </div>
-  <br>
-  <div class="form">
-    <ion-list>
-      <ion-item>
-        <ion-label> Nome: </ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label> Email: </ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label> Usuário:</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label> Senha:</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-    </ion-list>
-    <br>
-    <ion-button expand="block">Salvar Alterações</ion-button>
-    <ion-button expand="block" color="danger" (click)="logOut()">Sair</ion-button>
-  </div>
+
+  <div class="container">
+    <ion-grid [fixed]="true">
+      <ion-row class="ion-no-padding">
+        <ion-col size="12">
+          <h4 class="section-header">Configurações</h4>
+        </ion-col>
+     </ion-row>
+    </ion-grid>
+
+   </div>
+
+
+
+
+
 </ion-content>

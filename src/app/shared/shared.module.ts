@@ -7,6 +7,8 @@ import { EventoService } from './servicos/evento.service';
 import { ListaModalComponent } from './components/lista-modal/lista-modal.component';
 import { DetalhesModalComponent } from './components/detalhes-modal/detalhes-modal.component';
 import { ListaSlideComponent } from './components/lista-slide/lista-slide.component';
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +17,9 @@ import { ListaSlideComponent } from './components/lista-slide/lista-slide.compon
   imports: [
     CommonModule,
     IonicModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    TranslateModule
   ],
   exports: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent],
   providers: [EventoService],

@@ -1,0 +1,25 @@
+{
+
+  "Home": {
+    "texto1": "Grandes Blocos Tradicionais",
+    "texto2": "Eventos Pagos",
+    "texto3": "Infantil",
+    "texto4": "Programe Seu Carnaval",
+    "texto5": "Mudar Idioma",
+    "texto6": "Encontre o Evento",
+    "dia": {
+       "dia1": "Quinta-feira",
+       "dia2": "Sexta-feira",
+       "dia3": "Sábado de Carnaval",
+       "dia4": "Domingo de Carnaval",
+       "dia5": "Segunda de Carnaval",
+       "dia6": "Terça-feira Gorda",
+       "dia7": "Quarta-feira de Cinzas"
+
+    }
+
+  }
+
+
+
+}

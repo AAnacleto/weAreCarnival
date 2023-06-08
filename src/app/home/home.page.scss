@@ -1,3 +1,5 @@
+$font-oficial: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 .swiper-slide img{
   height: 90px;
 }
@@ -5,7 +7,7 @@
 .titulo{
   font-size: 0.7rem !important;
   margin-top: 2px !important;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: $font-oficial;
 }
 
 .fonte{
@@ -16,10 +18,30 @@
 .section-header{
   margin-left: 10px !important;
   font-weight: bold;
+  font-family: $font-oficial;
+  color: #0D6EFD;
+
 }
 
 .searchbar-input.sc-ion-searchbar-md{
   border-radius: 30px;
+}
+
+.flag{
+  ion-item{
+    img{
+      width: 30px !important;
+      height: 30px !important;
+    }
+
+    ion-label{
+      .text{
+        margin-right: 20px !important;
+        font-family: $font-oficial;
+      }
+    }
+
+  }
 }
 
 ion-slides{
@@ -32,6 +54,19 @@ ion-slides{
        }
     }
   }
+}
+
+.programacao{
+  background-color: white;
+  border-bottom: 2px solid #f4f5f8;
+  border-radius: 10px;
+}
+
+.recomendacoes{
+  background-image: url('../../assets/imagens/recomedacoes.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 }
 
 
