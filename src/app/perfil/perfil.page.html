@@ -4,23 +4,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light" [fullscreen]="true">
-  <!-- <div class="profile">
-    <div class="image">
-      <img [src]="imgUrl" *ngIf="imgUrl">
-
-    </div>
-    <div class="inputPhoto">
-      <input type="file" class="form-control" accept="image/*" #file (change)="preview(file.files, $event)" />
-
-    </div>
-  </div> -->
   <div class="container">
     <ion-grid [fixed]="true">
       <ion-row class="ion-no-padding">
         <ion-col size="12">
           <h4 class="section-header">Dados Pessoais</h4>
         </ion-col>
-     </ion-row>
+      </ion-row>
     </ion-grid>
     <div class="form">
       <ion-list>
@@ -39,28 +29,14 @@
       </ion-list>
     </div>
     <div class="buttons">
-      <!-- <ion-button>Salvar Alterações</ion-button>
-      <ion-button color="danger" (click)="logOut()">Sair</ion-button> -->
-       <div class="button1">
+      <div class="button1">
         <button type="button" class="btn btn-primary">Salvar Alterações</button>
-
-       </div>
-       <div class="button2">
-        <button type="button" class="btn btn-link" (click)="logOut()">Sair</button>
-
-       </div>
-
+      </div>
+      <div class="button2">
+        <button type="button" class="btn btn-link" (click)="logOut()">
+          Sair
+        </button>
+      </div>
     </div>
   </div>
-
-  <!-- <div class="container">
-    <ion-grid [fixed]="true">
-      <ion-row class="ion-no-padding">
-        <ion-col size="12">
-          <h4 class="section-header">Configurações</h4>
-        </ion-col>
-     </ion-row>
-    </ion-grid>
-
-   </div> -->
 </ion-content>

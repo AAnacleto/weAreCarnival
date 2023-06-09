@@ -7,11 +7,15 @@
     </ion-buttons>
     <ion-title class="titulo">{{ titulo | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button>{{"Buttons.Save" | translate}}</ion-button>
+      <ion-button>{{ "Buttons.Save" | translate }}</ion-button>
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-segment id="cidade" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChange()">
+    <ion-segment
+      id="cidade"
+      [(ngModel)]="selectedSegment"
+      (ionChange)="onSegmentChange()"
+    >
       <ion-segment-button value="segment1" (click)="imprimirValor(1)">
         <ion-label>Olinda</ion-label>
       </ion-segment-button>
@@ -22,53 +26,46 @@
   </ion-toolbar>
 
   <ion-toolbar>
-      <div class="menu">
-        <ion-button
+    <div class="menu">
+      <ion-button
         fill="outline"
         class="button"
         (click)="chamarPolosGerais(3)"
-        [ngClass]="{ 'buttonBack': cardsBlocos === true}"
-
-        >
+        [ngClass]="{ buttonBack: cardsBlocos === true }"
+      >
         {{ "Buttons.Button1" | translate }}
-        </ion-button>
-        <ion-button
+      </ion-button>
+      <ion-button
         fill="outline"
         class="button"
         (click)="chamarPolosGerais(4)"
-        [ngClass]="{ 'buttonBack': cardsBlocos === false}"
-
-        >
+        [ngClass]="{ buttonBack: cardsBlocos === false }"
+      >
         {{ "Buttons.Button2" | translate }}
-
       </ion-button>
-      </div>
-    </ion-toolbar>
+    </div>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content color="light" [fullscreen]="true">
-
   <ion-slides [options]="slideOptions" (ionSlideDidChange)="onSlideChange()">
     <ion-slide>
-      <div  class="programacao" *ngIf="cardsBlocos===false"
-        >
+      <div class="programacao" *ngIf="cardsBlocos === false">
         <app-card-expansivo
           *ngFor="let item of polos; let i = index"
           [titulo]="item.polo"
           [expandirCard]="item.expandir"
-          [mostrarCardAtracoes]=true
-
+          [mostrarCardAtracoes]="true"
         >
         </app-card-expansivo>
-
       </div>
 
       <ion-list
-       id="modal-list"
-       [inset]="true"
-       *ngIf="cardsBlocos"
-       class="programacao"
-       >
+        id="modal-list"
+        [inset]="true"
+        *ngIf="cardsBlocos"
+        class="programacao"
+      >
         <ion-item *ngFor="let item of eventos">
           <ion-avatar slot="start">
             <ion-img
@@ -97,173 +94,52 @@
           <div class="cardContent"></div>
         </ion-item>
       </ion-list>
-
     </ion-slide>
     <ion-slide>
-      <div class="programacao" *ngIf="cardsBlocos===false">
+      <div class="programacao" *ngIf="cardsBlocos === false">
         <app-card-expansivo
-         *ngFor="let item of polos; let i = index"
+          *ngFor="let item of polos; let i = index"
           [titulo]="item.polo"
           [expandirCard]="item.expandir"
-          [mostrarCardAtracoes]=true
-
+          [mostrarCardAtracoes]="true"
         >
         </app-card-expansivo>
-        <!-- <div *ngIf="polos">
-          <ion-card
-          *ngIf="polos.expandir === true">
-            <img
-              alt="Silhouette of mountains"
-              src="../../../../assets/imagens/mapas/Carmo.png"
-            />
-            <ion-card-content>
-              <ion-list id="modal-list" [inset]="true">
-                <ion-item *ngFor="let item of eventos">
-                  <ion-avatar slot="start">
-                    <ion-img
-                      src="{{ item.img }}"
-                      (click)="irModalDetalhes(item.id)"
-                    ></ion-img>
-                  </ion-avatar>
-                  <ion-label>
-                    <h2>{{ item.name }}</h2>
-                    <p>{{ item.data }}</p>
-                    <p>{{ item.local }}</p>
-                  </ion-label>
-                  <ion-icon
-                    aria-hidden="true"
-                    name="heart-outline"
-                    *ngIf="item.favorito === false"
-                    (click)="favoritar(item)"
-                  ></ion-icon>
-                  <ion-icon
-                    aria-hidden="true"
-                    name="heart"
-                    style="color: red"
-                    *ngIf="item.favorito === true"
-                    (click)="favoritar(item)"
-                  ></ion-icon>
-                  <div class="cardContent"></div>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-          </ion-card>
-        </div> -->
       </div>
 
       <ion-list
-      id="modal-list"
-      [inset]="true"
-      *ngIf="cardsBlocos"
-      class="programacao"
+        id="modal-list"
+        [inset]="true"
+        *ngIf="cardsBlocos"
+        class="programacao"
       >
-       <ion-item *ngFor="let item of eventos">
-         <ion-avatar slot="start">
-           <ion-img
-             src="{{ item.img }}"
-             (click)="irModalDetalhes(item.id)"
-           ></ion-img>
-         </ion-avatar>
-         <ion-label>
-           <h2>{{ item.name }}</h2>
-           <p>{{ item.data }}</p>
-           <p>{{ item.local }}</p>
-         </ion-label>
-         <ion-icon
-           aria-hidden="true"
-           name="heart-outline"
-           *ngIf="item.favorito === false"
-           (click)="favoritar(item)"
-         ></ion-icon>
-         <ion-icon
-           aria-hidden="true"
-           name="heart"
-           style="color: red"
-           *ngIf="item.favorito === true"
-           (click)="favoritar(item)"
-         ></ion-icon>
-         <div class="cardContent"></div>
-       </ion-item>
-     </ion-list>
+        <ion-item *ngFor="let item of eventos">
+          <ion-avatar slot="start">
+            <ion-img
+              src="{{ item.img }}"
+              (click)="irModalDetalhes(item.id)"
+            ></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.data }}</p>
+            <p>{{ item.local }}</p>
+          </ion-label>
+          <ion-icon
+            aria-hidden="true"
+            name="heart-outline"
+            *ngIf="item.favorito === false"
+            (click)="favoritar(item)"
+          ></ion-icon>
+          <ion-icon
+            aria-hidden="true"
+            name="heart"
+            style="color: red"
+            *ngIf="item.favorito === true"
+            (click)="favoritar(item)"
+          ></ion-icon>
+          <div class="cardContent"></div>
+        </ion-item>
+      </ion-list>
     </ion-slide>
-
   </ion-slides>
-
-
-  <!-- <div *ngFor="let item of polos; let i = index">
-    <app-card-expansivo
-      [titulo]="item.polo"
-      [expandirCard]="item.expandir"
-      (click)="expandirCardEvent(i)"
-    >
-    </app-card-expansivo>
-    <ion-card *ngIf="item.expandir === true">
-      <img
-        alt="Silhouette of mountains"
-        src="../../../../assets/imagens/mapas/Carmo.png"
-      />
-      <ion-card-content>
-        <ion-list id="modal-list" [inset]="true">
-          <ion-item *ngFor="let item of items">
-            <ion-avatar slot="start">
-              <ion-img
-                src="{{ item.img }}"
-                (click)="irModalDetalhes(item.id)"
-              ></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>{{ item.name }}</h2>
-              <p>{{ item.data }}</p>
-              <p>{{ item.local }}</p>
-            </ion-label>
-            <ion-icon
-              aria-hidden="true"
-              name="heart-outline"
-              *ngIf="item.favorito === false"
-              (click)="favoritar(item)"
-            ></ion-icon>
-            <ion-icon
-              aria-hidden="true"
-              name="heart"
-              style="color: red"
-              *ngIf="item.favorito === true"
-              (click)="favoritar(item)"
-            ></ion-icon>
-            <div class="cardContent"></div>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-  </div> -->
-
-  <!-- <ion-list id="modal-list" [inset]="true" *ngIf="cardsBlocos">
-    <ion-item *ngFor="let item of items">
-      <ion-avatar slot="start">
-        <ion-img
-          src="{{ item.img }}"
-          (click)="irModalDetalhes(item.id)"
-        ></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ item.name }}</h2>
-        <p>{{ item.data }}</p>
-        <p>{{ item.local }}</p>
-      </ion-label>
-      <ion-icon
-        aria-hidden="true"
-        name="heart-outline"
-        *ngIf="item.favorito === false"
-        (click)="favoritar(item)"
-      ></ion-icon>
-      <ion-icon
-        aria-hidden="true"
-        name="heart"
-        style="color: red"
-        *ngIf="item.favorito === true"
-        (click)="favoritar(item)"
-      ></ion-icon>
-      <div class="cardContent"></div>
-    </ion-item>
-  </ion-list> -->
-
 </ion-content>
