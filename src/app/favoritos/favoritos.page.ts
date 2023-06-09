@@ -11,13 +11,13 @@ export class FavoritosPage implements OnInit {
   eventoBotaoClickPolo: boolean = false;
   eventoBotaoClickBlocos: boolean = false;
   diaSemana = [
-    { dia: 'Quinta-feira', selecao: false, id: 1 },
-    { dia: 'Sexta-feira', selecao: false, id: 2 },
-    { dia: 'Sábado de Carnaval', selecao: false, id: 3 },
-    { dia: 'Domingo de Carnaval', selecao: false, id: 4 },
-    { dia: 'Segunda de Carnaval', selecao: false, id: 5 },
-    { dia: 'Terça feira Gorda', selecao: false, id: 6 },
-    { dia: 'Quarta-feira de Cinzas', selecao: false, id: 7 },
+    { dia: 'Home.dia.dia1', selecao: false, id: 1 },
+    { dia: 'Home.dia.dia2', selecao: false, id: 2 },
+    { dia: 'Home.dia.dia3', selecao: false, id: 3 },
+    { dia: 'Home.dia.dia4', selecao: false, id: 4 },
+    { dia: 'Home.dia.dia5', selecao: false, id: 5 },
+    { dia: 'Home.dia.dia6', selecao: false, id: 6 },
+    { dia: 'Home.dia.dia7', selecao: false, id: 7 },
   ];
 
   items = [

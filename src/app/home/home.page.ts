@@ -191,6 +191,8 @@ toggleValue: boolean = false;
 
 selectedLanguage: string = "pt";
 
+placeholder: string = "";
+
 
 public results = [...this.items];
 
@@ -202,18 +204,17 @@ public results = [...this.items];
   }
 
   ngOnInit() {
+    this.placeholder = "Busque o Evento ...";
 
   }
 
 
   irModallistEventos(id: any){
     this.router.navigate(['carnival/tabs/listaEventos/' + id]);
-    console.log(this.router.navigate(['carnival/tabs/listaEventos/' + id]));
   }
 
   irModalDetalhes(id: any){
     this.router.navigate(['carnival/tabs/detalhes/' + id]);
-    console.log(this.router.navigate(['carnival/tabs/detalhes/' + id]));
 
   }
 
@@ -226,12 +227,15 @@ public results = [...this.items];
     console.log(this.toggleValue)
     if(this.toggleValue === false){
       this.translate.use('pt'); // Use o idioma atual
+      this.placeholder = "Busque o Evento ...";
 
     } else {
       this.translate.use('en'); // Use o idioma atual
+      this.placeholder = "Search for Event ...";
+
+
     }
 
-    console.log(this.selectedLanguage)
   }
 
 

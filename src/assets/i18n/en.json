@@ -1,22 +1,46 @@
 {
 
-"Home": {
-  "texto1": "Most Famous Tradicional Carnival Blocks",
-  "texto2": "Paid Events",
-  "texto3": "Kids Session",
-  "texto4": "Organize Your Carnival",
-  "texto5": "Change language",
-  "texto6": "Search the Event",
-  "dia": {
-    "dia1": "Thursday",
-    "dia2": "Friday",
-    "dia3": "Sartuday",
-    "dia4": "Sunday",
-    "dia5": "Monday",
-    "dia6": "Tuersday",
-    "dia7": "Wednesday"
+  "Home": {
+    "texto1": "Traditional Carnival Blocks",
+    "texto2": "Free Events",
+    "texto3": "Family Session",
+    "texto4": "Schedule Your Carnival",
+    "texto5": "Mudar idioma",
+    "texto6": "Check the dates and times that each Block and Association will parade on the streets for free",
+    "texto7": "Private Events",
+    "texto8": "Family",
+    "texto9": "Restaurants",
+    "texto10": "Tourism",
+    "texto11": "Inns",
+    "texto12": "Costumers",
+    "texto13": "Others",
+    "dia": {
+      "dia1": "Thursday",
+      "dia2": "Friday",
+      "dia3": "Saturday",
+      "dia4": "Sunday",
+      "dia5": "Monday",
+      "dia6": "Tuesday",
+      "dia7": "Wednesday"
 
- }
-}
+   }
+  },
+  "Buttons":{
+    "Button1": "Street Parties",
+    "Button2": "Live Show",
+    "Save": "Save"
+  },
 
-}
+  "favoritos": {
+    "titulo": "Schedule"
+  },
+
+  "tabs":{
+    "home": "Home",
+    "favoritos": "Favorites",
+    "perfil": "Profile"
+  }
+
+
+
+  }

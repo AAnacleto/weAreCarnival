@@ -2,11 +2,18 @@
 
   "Home": {
     "texto1": "Grandes Blocos Tradicionais",
-    "texto2": "Eventos Pagos",
-    "texto3": "Infantil",
+    "texto2": "Desfiles",
+    "texto3": "Eventos Familiares",
     "texto4": "Programe Seu Carnaval",
-    "texto5": "Mudar Idioma",
-    "texto6": "Encontre o Evento",
+    "texto5": "Change Language",
+    "texto6": "Confira as datas e os horários que cada Blocos e Agremiações desfilarão nas ruas gratuitamente.",
+    "texto7": "Camarotes",
+    "texto8": "Familia",
+    "texto9": "Restaurantes",
+    "texto10": "Turismo",
+    "texto11": "Pousadas",
+    "texto12": "Fantasias",
+    "texto13": "Outras Opções",
     "dia": {
        "dia1": "Quinta-feira",
        "dia2": "Sexta-feira",
@@ -18,7 +25,26 @@
 
     }
 
+  },
+
+  "Buttons":{
+     "Button1": "Blocos de Rua",
+     "Button2": "Polos",
+     "Save": "Salvar"
+
+  },
+
+  "favoritos": {
+    "titulo": "Agenda"
+  },
+
+  "tabs":{
+    "home": "Inicio",
+    "favoritos": "Favoritos",
+    "perfil": "Perfil"
   }
+
+
 
 
 

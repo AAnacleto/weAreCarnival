@@ -23,6 +23,13 @@ $font-oficial: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sa
 
 }
 
+.section-subtitle{
+  margin-left: 10px !important;
+  font-family: $font-oficial;
+  font-size: 0.8rem;
+
+}
+
 .searchbar-input.sc-ion-searchbar-md{
   border-radius: 30px;
 }
@@ -34,12 +41,11 @@ $font-oficial: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sa
       height: 30px !important;
     }
 
-    ion-label{
-      .text{
-        margin-right: 20px !important;
-        font-family: $font-oficial;
-      }
-    }
+    ion-label#text{
+      font-family: $font-oficial;
+      font-size: 0.9rem;
+
+     }
 
   }
 }

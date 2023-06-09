@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title class="titulo">{{ titulo | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button>Salvar</ion-button>
+      <ion-button>{{"Buttons.Save" | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
@@ -30,7 +30,7 @@
         [ngClass]="{ 'buttonBack': cardsBlocos === true}"
 
         >
-        Blocos de Rua
+        {{ "Buttons.Button1" | translate }}
         </ion-button>
         <ion-button
         fill="outline"
@@ -38,7 +38,10 @@
         (click)="chamarPolosGerais(4)"
         [ngClass]="{ 'buttonBack': cardsBlocos === false}"
 
-        >Polos</ion-button>
+        >
+        {{ "Buttons.Button2" | translate }}
+
+      </ion-button>
       </div>
     </ion-toolbar>
 </ion-header>

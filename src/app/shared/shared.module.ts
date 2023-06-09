@@ -1,3 +1,4 @@
+import { ListaSlideElementosComponent } from './components/lista-slide-elementos/lista-slide-elementos.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -13,7 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
-  declarations: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent],
+  declarations: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent, ListaSlideElementosComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -21,7 +22,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     TranslateModule
   ],
-  exports: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent],
+  exports: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent, ListaSlideElementosComponent],
   providers: [EventoService],
 
 })

@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-searchbar
       animated="true"
-      placeholder="Encontre o evento ..."
+      [placeholder]="placeholder"
       show-cancel-button="focus"
       (ionInput)="handleInput($event)"
     ></ion-searchbar>
@@ -42,22 +42,18 @@
     </ion-item>
   </div>
 
-<app-lista-slide
-    *ngIf="showPesquisa===false"
-    [listaSlide]="items"
-    titulo="Home.texto1"
-  >
-  </app-lista-slide>
+<app-lista-slide *ngIf="showPesquisa===false" [listaSlide]="items" titulo="Home.texto1"> </app-lista-slide>
 
-  <app-lista-slide [listaSlide]="items" titulo="Home.texto2"></app-lista-slide>
+<app-lista-slide [listaSlide]="items" titulo="Home.texto2"></app-lista-slide>
 
-  <app-lista-slide [listaSlide]="items" titulo="Home.texto3"> </app-lista-slide>
+<app-lista-slide-elementos></app-lista-slide-elementos>
 
   <div class="programacao">
     <ion-grid [fixed]="true">
       <ion-row class="ion-no-padding">
         <ion-col size="12">
           <h4 class="section-header">{{ 'Home.texto4' | translate }}</h4>
+          <h6 class="section-subtitle">{{ 'Home.texto6' | translate }}</h6>
         </ion-col>
       </ion-row>
     </ion-grid>
