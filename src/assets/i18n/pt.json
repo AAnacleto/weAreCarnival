@@ -2,11 +2,11 @@
 
   "Home": {
     "texto1": "Grandes Blocos Tradicionais",
-    "texto2": "Desfiles",
+    "texto2": "Prévias",
     "texto3": "Eventos Familiares",
     "texto4": "Programe Seu Carnaval",
     "texto5": "Change Language",
-    "texto6": "Confira as datas e os horários que cada Blocos e Agremiações desfilarão nas ruas gratuitamente.",
+    "texto6": "Confira a programação completa do carnaval das cidades e veja as datas e os horários que cada Blocos e Agremiações desfilarão nas ruas gratuitamente.",
     "texto7": "Camarotes",
     "texto8": "Familia",
     "texto9": "Restaurantes",
@@ -28,7 +28,7 @@
   },
 
   "Buttons":{
-     "Button1": "Blocos de Rua",
+     "Button1": "Desfiles",
      "Button2": "Polos",
      "Save": "Salvar"
 

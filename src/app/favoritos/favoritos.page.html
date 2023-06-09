@@ -16,44 +16,27 @@
    </ion-button> -->
 
   <ion-toolbar>
-    <ion-segment [scrollable]="true">
+    <ion-segment [scrollable]="true" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChange()">
       <ion-segment-button
         (click)="imprimirDia(item)"
         *ngFor="let item of diaSemana, let i = index"
+        [value]="item.selecao"
+
       >
         <ion-label> {{item.dia | translate}} </ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-
-  <ion-toolbar>
-    <div class="menu">
-      <ion-button
-        shape="round"
-        fill="outline"
-        class="button"
-        size="small"
-        (click)="chamarPolosGerais(1)"
-        [ngClass]="{ 'buttonBack': eventoBotaoClickBlocos === true}"
-      >
-        Blocos de Rua
-      </ion-button>
-      <ion-button
-        shape="round"
-        fill="outline"
-        class="button"
-        size="small"
-        (click)="chamarPolosGerais(2)"
-        [ngClass]="{ 'buttonBack': eventoBotaoClickPolo === true}"
-        >Polos</ion-button
-      >
-    </div>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content color="light" [fullscreen]="true">
-  <ion-list id="modal-list" [inset]="true">
-    <ion-item *ngFor="let item of items">
+
+  <ion-slides [options]="slideOptions" (ionSlideDidChange)="onSlideChange()">
+    <ion-slide *ngFor="let item of diaSemana, let i = index">
+      <!-- Slide {{selectedSegment}} -->
+      <!-- {{item.dia | translate}} -->
+    <ion-list id="modal-list" [inset]="true" class="programacao">
+     <ion-item *ngFor="let item of items">
       <ion-avatar slot="start">
         <ion-img
           src="{{item.img}}"
@@ -80,6 +63,11 @@
       ></ion-icon>
     </ion-item>
   </ion-list>
+    </ion-slide>
+
+  </ion-slides>
+
+
 
   <!-- <div class="main">
   <p>Não há lista de eventos favoritos</p>

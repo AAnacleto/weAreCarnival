@@ -32,3 +32,22 @@ ion-segment{
   }
 
 }
+
+ion-content{
+  ion-slides {
+    height: 100%;
+
+    .swiper-slide{
+      width: 100%;
+      height: 100%;
+      // overflow-y: auto;
+
+    }
+    .programacao {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+
+    }
+  }
+}
