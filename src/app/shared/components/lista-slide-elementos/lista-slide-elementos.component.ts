@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-slide-elementos',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaSlideElementosComponent  implements OnInit {
 
+  @Input() listaSlide: any[] = [];
+
+  titulo: string = "";
+
   opts ={
     slidesPerView: 2.4,
     slidesOffsetBefore: 20,
@@ -14,8 +19,14 @@ export class ListaSlideElementosComponent  implements OnInit {
     freeMode: true
     }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
+
+  irParaDetalhesPesquisa(valor: any){
+    console.log(valor)
+    this.router.navigate(['carnival/tabs/busca/detalhes/' + valor.nome]);
+
+  }
 
 }

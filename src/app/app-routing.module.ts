@@ -15,6 +15,9 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'carnival', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)},
 
+
+
+
 ];
 @NgModule({
   imports: [

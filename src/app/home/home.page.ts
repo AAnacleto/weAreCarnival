@@ -176,6 +176,16 @@ diaSemana = [
   { dia: 'Home.dia.dia7', selecao: false, id: 7 },
 ];
 
+outrasOpt =[
+  { "id": 1, "nome": "Home.texto7",  "imagem": "../../../../assets/imagens/slide/camarote.jpg"},
+  { "id": 2, "nome": "Home.texto19", "imagem": "../../../../assets/imagens/slide/infantil.png"},
+  { "id": 3, "nome": "Home.texto10", "imagem": "../../../../assets/imagens/slide/turismo.jpg"},
+  { "id": 4, "nome": "Home.texto11", "imagem": "../../../../assets/imagens/slide/pousada.jpg"},
+  { "id": 5, "nome": "Home.texto9",  "imagem": "../../../../assets/imagens/slide/restaurante.jpeg"},
+  { "id": 6, "nome": "Home.texto12", "imagem": "../../../../assets/imagens/slide/fantasia.jpg"},
+
+]
+
 opts ={
 slidesPerView: 2.4,
 slidesOffsetBefore: 20,

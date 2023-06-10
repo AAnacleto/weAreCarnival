@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary" id="titulo">
+    <ion-title class="titulo">Busque por Categoria</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar
+    animated="true"
+    [placeholder]="placeholder"
+    show-cancel-button="focus"
+    (ionInput)="handleInput($event)"
+  ></ion-searchbar>
+  </ion-toolbar>
+   <ion-toolbar *ngIf="showPesquisa===true">
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let item of items">
+        <ion-avatar slot="start">
+          <ion-img
+            src="{{item.img}}"
+            (click)="irModalDetalhes(item.id)"
+          ></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{item.name}}</h2>
+          <p>{{item.data}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChange()">
+      <ion-segment-button value="segment1">
+        <ion-label>Tipos de Blocos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment2">
+        <ion-label>Serviços</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="slideOptions" (ionSlideDidChange)="onSlideChange()">
+    <ion-slide>
+      <div class="programacao">
+        <app-card-imagem
+        *ngFor="let item of listaTiposBlocos, let i = index"
+        [nome]="item.nome"
+        [imagem]="item.imagem"
+        (click)="irParaDetalhesPesquisa(item)"
+        >
+
+        </app-card-imagem>
+       </div>
+    </ion-slide>
+    <ion-slide>
+     <div class="programacao">
+      <app-card-imagem
+      *ngFor="let item of listaServicos,  let i = index"
+      [nome]="item.nome"
+      [imagem]="item.imagem"
+      (click)="irParaDetalhesPesquisa(item)"
+
+      >
+
+      </app-card-imagem>
+     </div>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

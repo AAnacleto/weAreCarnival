@@ -1,4 +1,7 @@
 <ion-header>
+  <ion-toolbar color="primary" id="titulo">
+    <ion-title class="tituloHeader">Olá, Fulano.</ion-title>
+  </ion-toolbar>
   <ion-toolbar color="primary">
     <ion-searchbar
       animated="true"
@@ -46,7 +49,7 @@
 
 <app-lista-slide [listaSlide]="items" titulo="Home.texto2"></app-lista-slide>
 
-<app-lista-slide-elementos></app-lista-slide-elementos>
+<app-lista-slide-elementos [listaSlide]="outrasOpt"></app-lista-slide-elementos>
 
   <div class="programacao">
     <ion-grid [fixed]="true">

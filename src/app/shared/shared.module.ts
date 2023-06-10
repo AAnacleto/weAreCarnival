@@ -1,3 +1,4 @@
+import { DetalhesPesquisaModalComponent } from './components/detalhes-pesquisa-modal/detalhes-pesquisa-modal.component';
 import { ListaSlideElementosComponent } from './components/lista-slide-elementos/lista-slide-elementos.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,11 +11,19 @@ import { DetalhesModalComponent } from './components/detalhes-modal/detalhes-mod
 import { ListaSlideComponent } from './components/lista-slide/lista-slide.component';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { CardImagemComponent } from './components/card-imagem/card-imagem.component';
 
-
+const components = [CardExpansivoComponent,
+                    ListaModalComponent,
+                    DetalhesModalComponent,
+                    ListaSlideComponent,
+                    ListaSlideElementosComponent,
+                    CardImagemComponent,
+                    DetalhesPesquisaModalComponent
+                  ]
 
 @NgModule({
-  declarations: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent, ListaSlideElementosComponent],
+  declarations: [...components],
   imports: [
     CommonModule,
     IonicModule,
@@ -22,7 +31,7 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     TranslateModule
   ],
-  exports: [CardExpansivoComponent, ListaModalComponent, DetalhesModalComponent, ListaSlideComponent, ListaSlideElementosComponent],
+  exports: [...components],
   providers: [EventoService],
 
 })

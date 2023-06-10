@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar color="primary" id="titulo">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titulo">{{ titulo | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirInformacoes()">
+        <ion-icon
+          name="chevron-down-outline"
+          *ngIf="showInformacao === false"
+        ></ion-icon>
+        <ion-icon
+          name="chevron-up-outline"
+          *ngIf="showInformacao === true"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="showInformacao === true" color="primary" id="information">
+  <div class="content" *ngIf="objeto">
+    <div class="slides">
+      <ion-slides pager="true">
+        <ion-slide *ngFor="let item of objeto[0].imagens, let i = index">
+            <img src="{{item.img}}">
+        </ion-slide>
+
+      </ion-slides>
+    </div>
+    <div class="descricao" >
+      <p>{{objeto[0].descricao}}</p>
+    </div>
+  </div>
+
+
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar
+      animated="true"
+      [placeholder]="placeholder"
+      show-cancel-button="focus"
+      (ionInput)="handleInput($event)"
+    ></ion-searchbar>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="showPesquisa === true">
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let item of items">
+        <ion-avatar slot="start">
+          <ion-img
+            src="{{ item.img }}"
+            (click)="irModalDetalhes(item.id)"
+          ></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ item.name }}</h2>
+          <p>{{ item.data }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment id="cidade"
+    [(ngModel)]="selectedSegment"
+    (ionChange)="onSegmentChange()">
+      <ion-segment-button value="segment1">
+        <ion-label>Olinda</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment2">
+        <ion-label>Recife</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-slides [options]="slideOptions" (ionSlideDidChange)="onSlideChange()">
+     <ion-slide>
+      <ion-list id="modal-list" [inset]="true" class="programacao">
+        <ion-item *ngFor="let item of items">
+          <ion-avatar slot="start">
+            <ion-img
+              src="{{item.img}}"
+              (click)="irModalDetalhes(item.id)"
+            ></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{item.name}}</h2>
+            <p>{{item.data}}</p>
+            <p>{{item.nomeLocal}}</p>
+          </ion-label>
+          <ion-icon
+            aria-hidden="true"
+            name="heart-outline"
+            *ngIf="item.favoritos === false"
+            (click)="favoritar(item)"
+          ></ion-icon>
+          <ion-icon
+            aria-hidden="true"
+            name="heart"
+            style="color: red"
+            *ngIf="item.favoritos === true"
+            (click)="favoritar(item)"
+          ></ion-icon>
+        </ion-item>
+      </ion-list>
+     </ion-slide>
+     <ion-slide>
+      <ion-list id="modal-list" [inset]="true" class="programacao">
+        <ion-item *ngFor="let item of items">
+          <ion-avatar slot="start">
+            <ion-img
+              src="{{item.img}}"
+              (click)="irModalDetalhes(item.id)"
+            ></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{item.name}}</h2>
+            <p>{{item.data}}</p>
+            <p>{{item.nomeLocal}}</p>
+          </ion-label>
+          <ion-icon
+            aria-hidden="true"
+            name="heart-outline"
+            *ngIf="item.favoritos === false"
+            (click)="favoritar(item)"
+          ></ion-icon>
+          <ion-icon
+            aria-hidden="true"
+            name="heart"
+            style="color: red"
+            *ngIf="item.favoritos === true"
+            (click)="favoritar(item)"
+          ></ion-icon>
+        </ion-item>
+      </ion-list>
+
+     </ion-slide>
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,57 @@
+$fonte-oficial: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+ion-header{
+  ion-toolbar#titulo{
+    text-align: center;
+    .titulo{
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: $fonte-oficial;
+    }
+
+  }
+  ion-toolbar{
+    ion-segment{
+
+      ion-label{
+         text-transform: capitalize;
+         font-size: 1rem;
+         font-weight: 600;
+         font-family: $fonte-oficial;
+
+      }
+    }
+  }
+
+}
+
+
+
+.titulo{
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: $fonte-oficial;
+
+}
+
+ion-content{
+  ion-slides {
+    height: 100%;
+
+    .swiper-slide{
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+
+    }
+    .programacao {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
+}
+

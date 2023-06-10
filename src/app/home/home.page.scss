@@ -1,5 +1,17 @@
 $font-oficial: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+ion-header{
+  ion-toolbar#titulo{
+    text-align: center;
+    .tituloHeader{
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: $font-oficial;
+    }
+
+  }
+}
+
 .swiper-slide img{
   height: 90px;
 }

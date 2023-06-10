@@ -14,6 +14,16 @@
     "texto11": "Pousadas",
     "texto12": "Fantasias",
     "texto13": "Outras Opções",
+    "texto14": "Líricos",
+    "texto15": "Troças Carnavalescas",
+    "texto16": "Maracatu Nação",
+    "texto17": "Afoxé",
+    "texto18": "Cabloclinhos",
+    "texto19": "Infantis",
+    "texto20": "Temáticos",
+    "texto21": "Maracatu Rural",
+    "texto22": "Gastronomia",
+
     "dia": {
        "dia1": "Quinta-feira",
        "dia2": "Sexta-feira",
@@ -41,7 +51,9 @@
   "tabs":{
     "home": "Inicio",
     "favoritos": "Favoritos",
-    "perfil": "Perfil"
+    "perfil": "Perfil",
+    "pesquisa": "Pesquisa",
+    "info": "Informações"
   }
 
 

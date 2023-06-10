@@ -11,6 +11,8 @@ import { PerfilPage } from '../perfil/perfil.page';
 import { HomePage } from '../home/home.page';
 import { SharedModule } from '../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { PesquisaPage } from '../pesquisa/pesquisa.page';
+import { InformacoesPage } from '../informacoes/informacoes.page';
 
 
 @NgModule({
@@ -26,12 +28,16 @@ import { TranslateModule } from '@ngx-translate/core';
     TabsPage,
     FavoritosPage,
     PerfilPage,
-    HomePage
+    HomePage,
+    PesquisaPage,
+    InformacoesPage
   ],
   exports: [
     FavoritosPage,
     PerfilPage,
-    HomePage
+    HomePage,
+    PesquisaPage,
+    InformacoesPage
   ]
 })
 export class TabsPageModule {}

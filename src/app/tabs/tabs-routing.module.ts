@@ -6,6 +6,9 @@ import { PerfilPage } from '../perfil/perfil.page';
 import { DetalhesModalComponent } from '../shared/components/detalhes-modal/detalhes-modal.component';
 import { ListaModalComponent } from '../shared/components/lista-modal/lista-modal.component';
 import { TabsPage } from './tabs.page';
+import { PesquisaPage } from '../pesquisa/pesquisa.page';
+import { InformacoesPage } from '../informacoes/informacoes.page';
+import { DetalhesPesquisaModalComponent } from '../shared/components/detalhes-pesquisa-modal/detalhes-pesquisa-modal.component';
 
 const routes: Routes = [
   {
@@ -34,6 +37,21 @@ const routes: Routes = [
       {
         path: 'perfil',
         component: PerfilPage,
+
+      },
+      {
+        path: 'pesquisa',
+        component: PesquisaPage,
+
+      },
+      {
+        path: 'info',
+        component: InformacoesPage,
+
+      },
+      {
+        path: 'busca/detalhes/:nome',
+        component: DetalhesPesquisaModalComponent,
 
       }
 

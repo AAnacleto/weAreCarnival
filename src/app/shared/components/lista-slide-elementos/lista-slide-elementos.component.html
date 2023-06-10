@@ -10,13 +10,13 @@
   </div>
   <div>
     <ion-slides [options]="opts">
-      <ion-slide tappable>
+      <ion-slide tappable *ngFor="let item of listaSlide">
         <ion-grid>
            <ion-row>
-            <ion-card color="primary">
-              <img alt="Silhouette of mountains" src="../../../../assets/imagens/slide/familia.jpg" />
+            <ion-card color="primary" (click)="irParaDetalhesPesquisa(item)" >
+              <img alt="Silhouette of mountains" [src]="item.imagem" />
               <ion-card-header>
-                <ion-card-title>{{"Home.texto8" | translate }}</ion-card-title>
+                <ion-card-title>{{ item.nome | translate }}</ion-card-title>
               </ion-card-header>
 
 
@@ -27,7 +27,7 @@
         </ion-grid>
       </ion-slide>
 
-      <ion-slide tappable>
+      <!-- <ion-slide tappable>
         <ion-grid>
            <ion-row>
             <ion-card color="primary">
@@ -111,7 +111,7 @@
             </ion-card>
            </ion-row>
         </ion-grid>
-      </ion-slide>
+      </ion-slide> -->
 
     </ion-slides>
   </div>
