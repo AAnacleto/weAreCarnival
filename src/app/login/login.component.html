@@ -4,7 +4,7 @@
     [ngStyle]="{ 'background-image': images[currentIndex] }"
   ></div>
   <div class="bottom">
-    <div class="login">
+    <div class="login" *ngIf="resetSenha===false">
       <h5 class="title">We Are Carnival</h5>
       <form class="form">
         <div class="form-group">
@@ -36,10 +36,40 @@
           </button>
         </div>
         <div class="textButton">
-          <p><a>Esqueceu sua senha ?</a></p>
+          <p>Esqueceu sua senha ?<a (click)="redefinirSenha()"> Clique aqui</a></p>
         </div>
         <div class="textNewConta">
-          <p><a>Criar nova conta</a></p>
+          <p><a (click)="irParaRegistro()">Criar nova conta</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="recuperaSenha" *ngIf="resetSenha===true">
+      <h6 class="title">Redifinição de Senha</h6>
+      <p>Informe o email para que possa ser realizada a troca de senha.</p>
+      <form class="form">
+        <div class="form-group">
+          <label>Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="buttonEnter">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg btn-block"
+            (click)="showAlert()"
+          >
+            Enviar
+          </button>
+        </div>
+        <div class="buttons">
+          <div class="textButton">
+            <p><a (click)="redefinirSenha()">Voltar ao Login</a></p>
+          </div>
         </div>
       </form>
     </div>

@@ -11,13 +11,14 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { RegistroComponent } from './login/registro/registro.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, RegistroComponent],
   imports: [BrowserModule,
             IonicModule.forRoot(),
             AppRoutingModule,

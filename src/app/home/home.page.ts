@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController, PopoverController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagePopoverComponent } from '../shared/components/language-popover/language-popover.component';
 
 
 @Component({
@@ -208,14 +210,18 @@ public results = [...this.items];
 
 
 
-  constructor(private router: Router, private translate: TranslateService){
-    translate.setDefaultLang('pt'); // Define o idioma padrão
+  constructor(private router: Router,
+              private translate: TranslateService,
+              private popoverCtrl: PopoverController,
+              private alertCtrl: AlertController
+              ){
+    translate.setDefaultLang('pt');
     translate.use(this.selectedLanguage);
   }
 
   ngOnInit() {
     this.placeholder = "Busque o Evento ...";
-
+    localStorage.setItem('LNG_KEY', 'pt');
   }
 
 
@@ -241,11 +247,31 @@ public results = [...this.items];
 
     } else {
       this.translate.use('en'); // Use o idioma atual
+      localStorage.setItem('LNG_KEY', 'en');
       this.placeholder = "Search for Event ...";
 
 
     }
 
+  }
+
+  async showAlert(){
+    const alert = await this.alertCtrl.create({
+      header: this.translate.instant('ALERT.header'),
+      message: this.translate.instant('ALERT.msg'),
+      buttons: ['OK']
+    });
+
+    alert.present();
+  }
+
+  async openLanguagePopover(ev){
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverComponent,
+      event: ev
+    });
+
+    await popover.present();
   }
 
 

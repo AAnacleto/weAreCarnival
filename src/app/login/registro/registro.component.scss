@@ -1,0 +1,107 @@
+$fonte-principal: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+.container{
+  display: flex;
+  position: relative;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+
+  .top {
+    flex: 0 0 30%; /* A div1 ocupa 60% da altura disponível */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bottom {
+    flex: 1; /* A div2 ocupa o restante da altura disponível */
+    background-color: #0d6efd;
+    border-top-left-radius: 50px; /* Raio do canto superior esquerdo */
+    border-top-right-radius: 50px; /* Raio do canto superior direito */
+    margin-top: -40px;
+    box-shadow: 0px -5px 10px rgba(255, 255, 255, 0.8);
+
+      .login{
+        color: white !important;
+        margin-top: 30px;
+
+         .title{
+          text-transform: uppercase;
+          font-weight: bolder;
+          font-size: 1.5rem;
+          text-align: center;
+          font-family: $fonte-principal;
+
+
+         }
+
+         .form{
+          padding: 20px;
+
+          .form-group{
+            margin-top: 5px;
+            font-family: $fonte-principal;
+
+            input{
+              border: 2px solid #0d6efd;
+              font-size: 1rem;
+
+            }
+          }
+         }
+
+         .buttonEnter{
+          text-align: center;
+          button{
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            background-color: white;
+            color: #0d6efd;
+            width: 100%;
+          }
+        }
+
+        .buttons{
+          display: flex;
+          flex-direction: column;
+          margin-top: 50px !important;
+
+        }
+
+        .textButton{
+          text-align: center;
+
+          a{
+            cursor: pointer;
+            color: white;
+            font-size: 1rem;
+
+            font-family:  $fonte-principal;
+
+          }
+
+        }
+
+        .textNewConta{
+          text-align: center;
+          margin-top: -10px !important;
+
+            a{
+            cursor: pointer;
+            color: white;
+            font-size: 1.3rem;
+            text-decoration: underline;
+            font-family:  $fonte-principal;
+
+
+          }
+        }
+      }
+
+  }
+
+
+}

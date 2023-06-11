@@ -12,6 +12,7 @@ import { ListaSlideComponent } from './components/lista-slide/lista-slide.compon
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardImagemComponent } from './components/card-imagem/card-imagem.component';
+import { LanguagePopoverComponent } from './components/language-popover/language-popover.component';
 
 const components = [CardExpansivoComponent,
                     ListaModalComponent,
@@ -19,7 +20,8 @@ const components = [CardExpansivoComponent,
                     ListaSlideComponent,
                     ListaSlideElementosComponent,
                     CardImagemComponent,
-                    DetalhesPesquisaModalComponent
+                    DetalhesPesquisaModalComponent,
+                    LanguagePopoverComponent
                   ]
 
 @NgModule({

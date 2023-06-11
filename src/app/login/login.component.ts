@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertController } from '@ionic/angular';
+
 
 
 @Component({
@@ -22,8 +25,12 @@ export class LoginComponent  implements OnInit {
 
   currentIndex: number = 0;
 
+  resetSenha: boolean = false;
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router,
+              private alertCtrl: AlertController,
+              private translate: TranslateService) { }
 
   ngOnInit() {
     setInterval(() => {
@@ -36,9 +43,27 @@ export class LoginComponent  implements OnInit {
     this.router.navigate(['carnival/tabs/home']);
   }
 
+  irParaRegistro(){
+    this.router.navigate(['registro']);
+  }
+
 
   changeImage(): void {
     this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
+
+  redefinirSenha(){
+    this.resetSenha = !this.resetSenha;
+  }
+
+  async showAlert(){
+    const alert = await this.alertCtrl.create({
+      header: this.translate.instant('ALERT.header'),
+      message: this.translate.instant('ALERT.msg'),
+      buttons: ['OK']
+    });
+
+    alert.present();
   }
 
 
