@@ -18,6 +18,50 @@ ion-content{
         margin-top: 10px;
       }
 
+    .icons-favorite{
+      white-space: nowrap;
+      margin-right: 10px;
+      padding: 30px;
+
+    }
+    .icons-inline{
+       white-space: nowrap;
+       display: inline-block;
+       margin-right: auto;
+
+
+       .icons{
+        display: inline-block;
+        padding: 5px;
+          ion-icon{
+            font-size: 1.3rem;
+
+          }
+
+          ion-icon#item{
+            font-size: 1.3rem;
+            color: #ffbf00;
+            border-color: black;
+          }
+       }
+    }
+
+    .favorito{
+      display: inline-block;
+      justify-content: end;
+      margin-left: 10rem;
+
+         ion-icon{
+          font-size: 1.3rem;
+         }
+
+         ion-icon#heart-total{
+          font-size: 1.3rem;
+          color: red;
+         }
+
+    }
+
   .descricao{
         background-color: white !important;
         border-bottom: 5px solid #f4f5f8;

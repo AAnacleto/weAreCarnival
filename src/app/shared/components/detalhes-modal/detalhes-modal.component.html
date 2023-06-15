@@ -18,7 +18,37 @@
 <ion-content color="light">
   <div *ngIf="objeto" class="imagem">
     <ion-img src="{{ objeto[0].img }}"></ion-img>
+
+  <div class="icons-favorite">
+
+    <div class="icons-inline">
+      <div
+        class="icons"
+        *ngFor="let item of avaliacaoEstrela; let i = index"
+        (click)="avaliarEvento(item, i)"
+      >
+        <ion-icon
+          name="star-outline"
+          *ngIf="item.selected === false"
+        ></ion-icon>
+        <ion-icon
+          id="item"
+          name="star"
+          *ngIf="item.selected === true"
+        ></ion-icon>
+      </div>
+    </div>
+
+    <div class="favorito" (click)="favoritarEvento()">
+      <ion-icon aria-hidden="true" name="heart-outline" *ngIf="objeto[0].favoritos===false"></ion-icon>
+      <ion-icon aria-hidden="true" name="heart" id="heart-total" *ngIf="objeto[0].favoritos===true"></ion-icon>
+    </div>
+
   </div>
+
+  </div>
+  <!-- <ion-icon name="star-outline" *ngFor="let item of avaliacaoEstrela"></ion-icon>
+  <ion-icon aria-hidden="true" name="heart-outline"></ion-icon> -->
 
   <div *ngIf="objeto" class="descricao">
     <p>

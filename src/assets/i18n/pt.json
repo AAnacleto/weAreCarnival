@@ -54,7 +54,14 @@
     "perfil": "Perfil",
     "pesquisa": "Pesquisa",
     "info": "Informações"
+  },
+
+  "ALERT":{
+    "header": "Erro",
+     "msg": "Houve um erro na operação"
   }
+
+
 
 
 

@@ -122,7 +122,7 @@ export class HomePage implements OnInit {
       "pontoReferencia": "Próximo a accenture"
   },
   "nomeLocal": "Rua da hora",
-  "img": "./assets/imagens/7.jpg",
+  "img": "https://firebasestorage.googleapis.com/v0/b/wearecarnival-images.appspot.com/o/images%2Fgalomadrugada.jpeg?alt=media&token=88c75215-e478-47a4-8b56-2fb145658465",
   "data": "2024-02-10",
   "horarioSaida": "00:00",
   "diaSemana": "Sábado",
@@ -141,7 +141,7 @@ export class HomePage implements OnInit {
       "pontoReferencia": "Em frente a igreja do Rosário"
   },
   "nomeLocal": "Sede do Homem da meia noite",
-  "img": "./assets/imagens/8.jpg",
+  "img": "https://firebasestorage.googleapis.com/v0/b/wearecarnival-images.appspot.com/o/images%2Fhomemmeianoite.jpeg?alt=media&token=83117896-2660-40fb-8fa1-c71b20e8936a",
   "data": "2024-02-10",
   "horarioSaida": "00:00",
   "diaSemana": "Sábado",
@@ -160,7 +160,7 @@ export class HomePage implements OnInit {
       "pontoReferencia": "Em frente a igreja do Rosário"
   },
   "nomeLocal": "Sede da Pitombeira",
-  "img": "./assets/imagens/9.jfif",
+  "img": "https://firebasestorage.googleapis.com/v0/b/wearecarnival-images.appspot.com/o/images%2Fmaracatunacao.png?alt=media&token=ebcdb2df-813a-4886-9be6-569cccb10805",
   "data": "2024-02-10",
   "horarioSaida": "00:00",
   "diaSemana": "Sábado",

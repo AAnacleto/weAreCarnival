@@ -182,6 +182,15 @@ export class DetalhesModalComponent  implements OnInit {
   }
   ]
 
+  avaliacaoEstrela = [
+    { "id": 1, "selected": false},
+    { "id": 2, "selected": false},
+    { "id": 3, "selected": false},
+    { "id": 4, "selected": false},
+    { "id": 5, "selected": false}
+
+  ]
+
  constructor( private route: ActivatedRoute,
               private eventoService: EventoService,
               private navController: NavController
@@ -204,5 +213,16 @@ export class DetalhesModalComponent  implements OnInit {
   public goBack(): void {
     this.navController.back();
   }
+
+  avaliarEvento(value: any, i){
+    console.log(value);
+    this.avaliacaoEstrela[i].selected = !this.avaliacaoEstrela[i].selected;
+  }
+
+  favoritarEvento(){
+   this.objeto[0].favoritos = !this.objeto[0].favoritos;
+  }
+
+
 
 }
