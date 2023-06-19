@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonSlides, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { EventoService } from '../../servicos/evento.service';
+import { Evento } from '../../models/evento';
 
 
 
@@ -120,7 +122,7 @@ export class ListaModalComponent implements OnInit {
 
   };
 
-  constructor(private router: Router, private navController: NavController, private route: ActivatedRoute) {}
+  constructor(private router: Router, private navController: NavController, private route: ActivatedRoute, private service: EventoService) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params["id"];
@@ -129,7 +131,8 @@ export class ListaModalComponent implements OnInit {
     this.cidade = 1;
     this.modalidade = 3;
     this.cardsBlocos = true;
-    this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
+    // this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
+    this.listarDiaCidade('Olinda');
 
   }
 
@@ -157,13 +160,15 @@ export class ListaModalComponent implements OnInit {
        console.log('cidade Olinda, blocos gerais');
        this.polos = [];
        this.cardsBlocos = true;
-       this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
+      //  this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
+      this.listarDiaCidade('Olinda');
 
     } else if (this.cidade === 2 && this.modalidade === 3){
        console.log('cidade Recife, blocos gerais');
        this.polos = [];
        this.cardsBlocos = true;
-       this.eventos = this.items.filter( buscar => buscar.cidade === 'Recife');
+      //  this.eventos = this.items.filter( buscar => buscar.cidade === 'Recife');
+      this.listarDiaCidade('Recife')
 
     } else if (this.cidade === 1 && this.modalidade === 4) {
       console.log('cidade Olinda, Polos');
@@ -210,5 +215,34 @@ export class ListaModalComponent implements OnInit {
 
     }
     return 0;
+  }
+
+
+  getDay(): number {
+    switch (this.titulo) {
+      case 'Home.dia.dia1':
+        return 1;
+      case 'Home.dia.dia2':
+        return 2;
+      case 'Home.dia.dia3':
+        return 3;
+      case 'Home.dia.dia4':
+        return 4;
+      case 'Home.dia.dia5':
+        return 5;
+      case 'Home.dia.dia6':
+        return 6;
+      case 'Home.dia.dia7':
+        return 7;
+    }
+    return 0;
+  }
+
+  listarDiaCidade(cidade: string) {
+    const diaInt = this.getDay();
+    console.log(diaInt)
+    this.service.listarDiaCidade(diaInt, cidade).subscribe(data => {
+      this.eventos = (data as Evento[]);
+    })
   }
 }

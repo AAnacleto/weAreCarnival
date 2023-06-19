@@ -191,6 +191,8 @@ export class DetalhesModalComponent  implements OnInit {
 
   ]
 
+
+
  constructor( private route: ActivatedRoute,
               private eventoService: EventoService,
               private navController: NavController
@@ -201,10 +203,11 @@ export class DetalhesModalComponent  implements OnInit {
   this.objeto = this.itens.filter((evento: any) => evento.id === parseInt(this.id));
 
   // this.buscarEventosPorId();
+  this.buscarPorId();
   }
 
-  buscarEventosPorId() {
-   this.eventoService.buscarEventoPorId(this.id).subscribe( data =>{
+  buscarPorId() {
+   this.eventoService.buscarPorId(this.id).subscribe( data =>{
     this.objeto = (data as any[0]);
     console.log(this.objeto);
    })

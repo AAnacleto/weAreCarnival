@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController, PopoverController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagePopoverComponent } from '../shared/components/language-popover/language-popover.component';
+import { EventoService } from '../shared/servicos/evento.service';
+import { Evento } from '../shared/models/evento';
 
 
 @Component({
@@ -205,6 +207,10 @@ selectedLanguage: string = "pt";
 
 placeholder: string = "";
 
+listaCategoriaTrad: Evento[] = [];
+listaCategoriaPrevias: Evento[] = [];
+listaCategoria: Evento[] = [];
+
 
 public results = [...this.items];
 
@@ -213,7 +219,8 @@ public results = [...this.items];
   constructor(private router: Router,
               private translate: TranslateService,
               private popoverCtrl: PopoverController,
-              private alertCtrl: AlertController
+              private alertCtrl: AlertController,
+              private service: EventoService
               ){
     translate.setDefaultLang('pt');
     translate.use(this.selectedLanguage);
@@ -222,6 +229,8 @@ public results = [...this.items];
   ngOnInit() {
     this.placeholder = "Busque o Evento ...";
     localStorage.setItem('LNG_KEY', 'pt');
+    this.listarTradicional();
+    this.listarPrevias();
   }
 
 
@@ -275,7 +284,17 @@ public results = [...this.items];
   }
 
 
+  listarPrevias() {
+    this.service.listarCategoria('Previas').subscribe(data => {
+      this.listaCategoriaPrevias = (data as Evento[]);
+    });
+  }
 
+  listarTradicional() {
+    this.service.listarCategoria('Tradicional').subscribe(data => {
+      this.listaCategoriaTrad = (data as Evento[]);
+    })
+  }
 
 
 }

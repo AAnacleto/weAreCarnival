@@ -13,16 +13,19 @@
       <ion-slide *ngFor="let item of listaSlide, let i = index" tappable (click)="irModalDetalhes(item.id)">
         <ion-grid>
            <ion-row>
-             <img class="imagemBanner" src="{{item.img}}"/>
+             <img class="imagemBanner" src="{{item.imagem}}"/>
            </ion-row>
            <ion-row class="titulo">
-             <b>{{item.name}}</b>
+             <b>{{item.nome}}</b>
            </ion-row >
            <ion-row class="fonte">
-              {{item.data}}
+              {{item.diaSemana}}
            </ion-row>
            <ion-row class="fonte">
               {{item.nomeLocal}}
+           </ion-row>
+           <ion-row class="fonte">
+            {{item.horarioSaida}}
            </ion-row>
 
         </ion-grid>
