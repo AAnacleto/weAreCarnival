@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
+import { EventoService } from '../shared/servicos/evento.service';
+import { Evento } from '../shared/models/evento';
 
 @Component({
   selector: 'app-favoritos',
@@ -11,15 +13,19 @@ export class FavoritosPage implements OnInit {
   // eventoBotaoClick: boolean = false;
   eventoBotaoClickPolo: boolean = false;
   eventoBotaoClickBlocos: boolean = false;
+  eventosFavoritos: any = []
+  eventosRetorno: any = [];
+
   diaSemana = [
-    { dia: 'Home.dia.dia1', selecao: "segment1", id: 1 },
-    { dia: 'Home.dia.dia2', selecao: "segment2", id: 2 },
-    { dia: 'Home.dia.dia3', selecao: "segment3", id: 3 },
-    { dia: 'Home.dia.dia4', selecao: "segment4", id: 4 },
-    { dia: 'Home.dia.dia5', selecao: "segment5", id: 5 },
-    { dia: 'Home.dia.dia6', selecao: "segment6", id: 6 },
-    { dia: 'Home.dia.dia7', selecao: "segment7", id: 7 },
+    { dia: 'Home.dia.dia1', selecao: false, id: 4 },
+    { dia: 'Home.dia.dia2', selecao: false, id: 5 },
+    { dia: 'Home.dia.dia3', selecao: false, id: 6 },
+    { dia: 'Home.dia.dia4', selecao: false, id: 0 },
+    { dia: 'Home.dia.dia5', selecao: false, id: 1 },
+    { dia: 'Home.dia.dia6', selecao: false, id: 2 },
+    { dia: 'Home.dia.dia7', selecao: false, id: 3 },
   ];
+
 
   items = [
     {
@@ -116,7 +122,7 @@ export class FavoritosPage implements OnInit {
 
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: EventoService) {}
 
   ngOnInit() {
     this.selectedSegment = "segment1"
@@ -159,8 +165,8 @@ export class FavoritosPage implements OnInit {
   imprimirDia(valor: any){
     console.log(valor)
     console.log(this.selectedSegment);
-
-    // this.selectedSegment = valor.id;
+    this.listarDiaSemana(valor.id)
+    this.selectedSegment = valor.id;
   }
 
   onSegmentChange() {
@@ -170,6 +176,7 @@ export class FavoritosPage implements OnInit {
  onSlideChange = async () =>  {
     const activeIndex = await this.slides.getActiveIndex(); // Aguarda a resolução da Promise
     this.selectedSegment = 'segment' + (activeIndex + 1);
+
 
  }
 
@@ -193,5 +200,25 @@ export class FavoritosPage implements OnInit {
 
     }
     return 0;
+  }
+
+  listarDiaSemana(dia: number) {
+    this.service.listarDiaInt(dia).subscribe(data => {
+      this.eventosRetorno = (data as Evento[]);
+      console.log(this.eventosRetorno)
+      this.eventosFavoritos = this.eventosRetorno.filter( buscar => buscar.favoritos === true);
+    })
+  }
+
+  favoritarEvento(value: any) {
+    value.favoritos = !value.favoritos;
+    console.log(value.id)
+    this.salvarFavorito(value)
+
+  }
+
+  salvarFavorito(value: any) {
+    this.service.salvarFavorito(value).subscribe(data => {
+    })
   }
 }

@@ -11,4 +11,5 @@ export class Evento {
   horarioSaida: string = "";
   diaSemana: string = "";
   favoritos: boolean = false;
+  descricao: string = "";
 }

@@ -24,30 +24,30 @@
   <ion-slides [options]="slideOptions" (ionSlideDidChange)="onSlideChange()">
     <ion-slide *ngFor="let item of diaSemana, let i = index">
       <ion-list id="modal-list" [inset]="true" class="programacao">
-        <ion-item *ngFor="let item of items">
+        <ion-item *ngFor="let item of eventosFavoritos">
           <ion-avatar slot="start">
             <ion-img
-              src="{{item.img}}"
+              src="{{item.imagem}}"
               (click)="irModalDetalhes(item.id)"
             ></ion-img>
           </ion-avatar>
           <ion-label>
-            <h2>{{item.name}}</h2>
+            <h2>{{item.nome}}</h2>
             <p>{{item.data}}</p>
-            <p>{{item.local}}</p>
+            <p>{{item.nomeLocal}}</p>
           </ion-label>
           <ion-icon
             aria-hidden="true"
             name="heart-outline"
-            *ngIf="item.favorito === false"
-            (click)="favoritar(item)"
+            *ngIf="item.favoritos === false"
+            (click)="favoritarEvento(item)"
           ></ion-icon>
           <ion-icon
             aria-hidden="true"
             name="heart"
             style="color: red"
-            *ngIf="item.favorito === true"
-            (click)="favoritar(item)"
+            *ngIf="item.favoritos === true"
+            (click)="favoritarEvento(item)"
           ></ion-icon>
         </ion-item>
       </ion-list>

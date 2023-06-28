@@ -195,12 +195,12 @@ export class DetalhesModalComponent  implements OnInit {
 
  constructor( private route: ActivatedRoute,
               private eventoService: EventoService,
-              private navController: NavController
+              private navController: NavController,
               ) { }
 
   ngOnInit() {
   this.id = this.route.snapshot.params["id"];
-  this.objeto = this.itens.filter((evento: any) => evento.id === parseInt(this.id));
+  // this.objeto = this.itens.filter((evento: any) => evento.id === parseInt(this.id));
 
   // this.buscarEventosPorId();
   this.buscarPorId();
@@ -224,6 +224,18 @@ export class DetalhesModalComponent  implements OnInit {
 
   favoritarEvento(){
    this.objeto[0].favoritos = !this.objeto[0].favoritos;
+  }
+
+  favoritar(value: any) {
+    value.favoritos = !value.favoritos;
+    console.log(value.id)
+    this.salvarFavorito(value)
+
+  }
+
+  salvarFavorito(value: any) {
+    this.eventoService.salvarFavorito(value).subscribe(data => {
+    })
   }
 
 

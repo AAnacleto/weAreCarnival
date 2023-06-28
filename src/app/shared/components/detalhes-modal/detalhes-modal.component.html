@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="favorito" (click)="favoritarEvento()">
+    <div class="favorito" (click)="favoritar(objeto)">
       <ion-icon aria-hidden="true" name="heart-outline" *ngIf="objeto.favoritos===false"></ion-icon>
       <ion-icon aria-hidden="true" name="heart" id="heart-total" *ngIf="objeto.favoritos===true"></ion-icon>
     </div>
@@ -50,11 +50,11 @@
   <!-- <ion-icon name="star-outline" *ngFor="let item of avaliacaoEstrela"></ion-icon>
   <ion-icon aria-hidden="true" name="heart-outline"></ion-icon> -->
 
-  <!-- <div *ngIf="objeto" class="descricao">
+  <div *ngIf="objeto" class="descricao">
     <p>
-      {{ objeto[0].descricao }}
+      {{ objeto.descricao }}
     </p>
-  </div> -->
+  </div>
 
   <div class="form">
     <ion-grid>

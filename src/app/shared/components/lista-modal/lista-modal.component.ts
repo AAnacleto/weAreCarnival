@@ -64,6 +64,7 @@ export class ListaModalComponent implements OnInit {
   polos: any = [];
 
   eventos: any = [];
+  eventosRetorno: any = [];
 
   polosOlinda = [
     { polo: 'Polo Carmo', expandir: false },
@@ -94,14 +95,16 @@ export class ListaModalComponent implements OnInit {
   ];
 
   diaSemana = [
-    { dia: 'Home.dia.dia1', selecao: false, id: 1 },
-    { dia: 'Home.dia.dia2', selecao: false, id: 2 },
-    { dia: 'Home.dia.dia3', selecao: false, id: 3 },
-    { dia: 'Home.dia.dia4', selecao: false, id: 4 },
-    { dia: 'Home.dia.dia5', selecao: false, id: 5 },
-    { dia: 'Home.dia.dia6', selecao: false, id: 6 },
-    { dia: 'Home.dia.dia7', selecao: false, id: 7 },
+    { dia: 'Home.dia.dia1', selecao: false, id: 4 },
+    { dia: 'Home.dia.dia2', selecao: false, id: 5 },
+    { dia: 'Home.dia.dia3', selecao: false, id: 6 },
+    { dia: 'Home.dia.dia4', selecao: false, id: 0 },
+    { dia: 'Home.dia.dia5', selecao: false, id: 1 },
+    { dia: 'Home.dia.dia6', selecao: false, id: 2 },
+    { dia: 'Home.dia.dia7', selecao: false, id: 3 },
   ];
+
+
 
   like: boolean = false;
   cidade: number = 0;
@@ -131,14 +134,26 @@ export class ListaModalComponent implements OnInit {
     this.cidade = 1;
     this.modalidade = 3;
     this.cardsBlocos = true;
-    // this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
-    this.listarDiaCidade('Olinda');
-
+    this.listarDiaSemana(retorno[0].id);
+    console.log(retorno)
+    // this.eventos = this.eventosRetorno.filter( buscar => buscar.endereco.cidade === 'Olinda');
+    // setTimeout(this.eventos = this.eventosRetorno.filter( buscar => buscar.endereco.cidade === 'Olinda'), 3000);
+    this.verificarMenu()
+    console.log(this.eventos)
+    console.log(this.eventosRetorno)
   }
 
   favoritar(value: any) {
     this.like = !this.like;
-    value.favorito = !value.favorito;
+    value.favoritos = !value.favoritos;
+    console.log(value.id)
+    this.salvarFavorito(value)
+
+  }
+
+  salvarFavorito(value: any) {
+    this.service.salvarFavorito(value).subscribe(data => {
+    })
   }
 
   irModalDetalhes(id: any) {
@@ -160,15 +175,15 @@ export class ListaModalComponent implements OnInit {
        console.log('cidade Olinda, blocos gerais');
        this.polos = [];
        this.cardsBlocos = true;
-      //  this.eventos = this.items.filter( buscar => buscar.cidade === 'Olinda');
-      this.listarDiaCidade('Olinda');
+       this.eventos = this.eventosRetorno.filter( buscar => buscar.endereco.cidade === 'Olinda');
+      // this.listarDiaCidade('Olinda');
 
     } else if (this.cidade === 2 && this.modalidade === 3){
        console.log('cidade Recife, blocos gerais');
        this.polos = [];
        this.cardsBlocos = true;
-      //  this.eventos = this.items.filter( buscar => buscar.cidade === 'Recife');
-      this.listarDiaCidade('Recife')
+       this.eventos = this.eventosRetorno.filter( buscar => buscar.endereco.cidade === 'Recife');
+      // this.listarDiaCidade('Recife')
 
     } else if (this.cidade === 1 && this.modalidade === 4) {
       console.log('cidade Olinda, Polos');
@@ -218,31 +233,41 @@ export class ListaModalComponent implements OnInit {
   }
 
 
-  getDay(): number {
-    switch (this.titulo) {
-      case 'Home.dia.dia1':
-        return 1;
-      case 'Home.dia.dia2':
-        return 2;
-      case 'Home.dia.dia3':
-        return 3;
-      case 'Home.dia.dia4':
-        return 4;
-      case 'Home.dia.dia5':
-        return 5;
-      case 'Home.dia.dia6':
-        return 6;
-      case 'Home.dia.dia7':
-        return 7;
-    }
-    return 0;
-  }
+  // getDay(): number {
+  //   switch (this.titulo) {
+  //     case 'Home.dia.dia1':
+  //       return 1;
+  //     case 'Home.dia.dia2':
+  //       return 2;
+  //     case 'Home.dia.dia3':
+  //       return 3;
+  //     case 'Home.dia.dia4':
+  //       return 4;
+  //     case 'Home.dia.dia5':
+  //       return 5;
+  //     case 'Home.dia.dia6':
+  //       return 6;
+  //     case 'Home.dia.dia7':
+  //       return 7;
+  //   }
+  //   return 0;
+  // }
 
-  listarDiaCidade(cidade: string) {
-    const diaInt = this.getDay();
-    console.log(diaInt)
-    this.service.listarDiaCidade(diaInt, cidade).subscribe(data => {
-      this.eventos = (data as Evento[]);
+  // listarDiaCidade(cidade: string) {
+  //   const diaInt = this.getDay();
+  //   console.log(diaInt)
+  //   this.service.listarDiaCidade(diaInt, cidade).subscribe(data => {
+  //     this.eventos = (data as Evento[]);
+  //   })
+  // }
+
+  listarDiaSemana(dia: number) {
+    this.service.listarDiaInt(dia).subscribe(data => {
+      this.eventosRetorno = (data as Evento[]);
+      console.log(this.eventosRetorno)
+      this.eventos = this.eventosRetorno.filter( buscar => buscar.endereco.cidade === 'Olinda');
     })
   }
+  // this.eventos = this.items.filter(item =>
+  //   item.diaSemana.toLowerCase() === lowerCaseSearchTerm || item.nome.toLowerCase() === lowerCaseSearchTerm || item.categoria.toLowerCase() === lowerCaseSearchTerm);
 }

@@ -69,26 +69,26 @@
         <ion-item *ngFor="let item of eventos">
           <ion-avatar slot="start">
             <ion-img
-              src="{{ item.img }}"
+              src="{{ item.imagem }}"
               (click)="irModalDetalhes(item.id)"
             ></ion-img>
           </ion-avatar>
           <ion-label>
-            <h2>{{ item.name }}</h2>
+            <h2>{{ item.nome }}</h2>
             <p>{{ item.data }}</p>
-            <p>{{ item.local }}</p>
+            <p>{{ item.nomeLocal }}</p>
           </ion-label>
           <ion-icon
             aria-hidden="true"
             name="heart-outline"
-            *ngIf="item.favorito === false"
+            *ngIf="item.favoritos === false"
             (click)="favoritar(item)"
           ></ion-icon>
           <ion-icon
             aria-hidden="true"
             name="heart"
             style="color: red"
-            *ngIf="item.favorito === true"
+            *ngIf="item.favoritos === true"
             (click)="favoritar(item)"
           ></ion-icon>
           <div class="cardContent"></div>
@@ -115,26 +115,26 @@
         <ion-item *ngFor="let item of eventos">
           <ion-avatar slot="start">
             <ion-img
-              src="{{ item.img }}"
+              src="{{ item.imagem }}"
               (click)="irModalDetalhes(item.id)"
             ></ion-img>
           </ion-avatar>
           <ion-label>
-            <h2>{{ item.name }}</h2>
+            <h2>{{ item.nome }}</h2>
             <p>{{ item.data }}</p>
-            <p>{{ item.local }}</p>
+            <p>{{ item.nomeLocal }}</p>
           </ion-label>
           <ion-icon
             aria-hidden="true"
             name="heart-outline"
-            *ngIf="item.favorito === false"
+            *ngIf="item.favoritos === false"
             (click)="favoritar(item)"
           ></ion-icon>
           <ion-icon
             aria-hidden="true"
             name="heart"
             style="color: red"
-            *ngIf="item.favorito === true"
+            *ngIf="item.favoritos === true"
             (click)="favoritar(item)"
           ></ion-icon>
           <div class="cardContent"></div>

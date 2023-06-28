@@ -36,7 +36,16 @@ listarCategoria(categoria: string): Observable<Evento[]> {
 }
 
 listarDiaCidade(dia: number, cidade: string): Observable<Evento[]> {
-  return this.http.get<Evento[]>(API + 'eventos/find/cityDay/?dia=' + dia + '&cidade=' + cidade)
+  return this.http.get<Evento[]>(API + '/eventos/find/cityDay/?dia=' + dia + '&cidade=' + cidade)
+}
+
+listarDiaInt(dia: number): Observable<Evento[]> {
+  return this.http.get<Evento[]>(API + '/eventos/find/intDay/' + dia);
+}
+
+salvarFavorito(evento: Evento): Observable<Evento> {
+  const url = API + '/eventos/update/' + evento.id;
+  return this.http.put<Evento>(url, evento);
 }
 
 }
